@@ -47,7 +47,7 @@ p{
     width: 97vw;
     margin: 10vh auto;
     padding: 10px;
-    border: #555 1px solid;
+	background-color::#f8f3ec;
     z-index: 1000000;
 	float:right;
 }
