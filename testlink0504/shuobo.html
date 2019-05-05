@@ -1,0 +1,325 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		 <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+		<title>shuobo compare</title>
+		<link rel="stylesheet" type="text/css" href="style.css">
+	</head>
+	<body>
+
+		<h1>硕博被引用率差距</h1>
+		
+
+		<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.0/d3.js"></script>
+		<script type="text/javascript">
+
+
+			var fullwidth = 1000;
+			var fullheight = 700;
+			var margin = { top: 50, right: 190, bottom: 100, left: 80 };
+
+
+			var width = fullwidth - margin.left - margin.right;
+			var height = fullheight - margin.top - margin.bottom;
+
+			var timeParse = d3.timeParse("%Y");
+			var timeFormat = d3.timeFormat("%Y");
+
+			var xScale = d3.scaleTime()
+								.range([ 0, width]);
+
+			var yScale = d3.scaleLinear()
+								.range([0, height]);
+
+			var xAxis = d3.axisBottom(xScale)
+							.tickFormat(function(d) {
+								return timeFormat(d);
+							})
+							.ticks(15);
+							
+
+			var yAxis = d3.axisLeft(yScale);
+
+
+			// var line = d3.line()
+			// 	.curve(d3.curveCardinal)
+			// 	.x(function(d) {
+			// 		return xScale(timeParse(d.year));
+			// 	})
+			// 	.y(function(d) {
+			// 		return yScale(+d.amount);
+			// 	})
+
+			var svg = d3.select("body")
+						.append("svg")
+						.attr("width", fullwidth)
+						.attr("height", fullheight)
+						.append("g")
+						.attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+
+			var radius = 5;
+				
+
+			var tooltip = d3.select("body")
+                        .append("div")
+                        .attr("class","tooltip");
+
+			//Load data
+			d3.csv("line-shuobo.csv", function(error, data) {
+                if (error) throw error; 
+ 
+ 			console.log(data)
+
+				var years = d3.keys(data[0]).slice(0, 11-1); 
+				
+				var dataset = [];
+
+			
+				data.forEach(function(d){
+
+					var myEmissions = [];
+
+					
+					years.forEach(function(y){
+						if (d[y]) { 
+							myEmissions.push({
+								myCountry:d.degree,
+								year: y,
+								amount: d[y]
+							})
+						}
+					})
+
+					dataset.push({
+						country: d.degree,
+						emissions: myEmissions
+					})
+				})
+
+				xScale.domain(
+					d3.extent(years, function(d) {
+						return timeParse(d);
+					}));
+
+				yScale.domain([
+					d3.max(dataset, function(d) {
+						return d3.max(d.emissions, function(d) {
+							return +d.amount;
+						});
+					}),
+					d3.min(dataset, function(d) {
+						return d3.min(d.emissions, function(d) {
+							return +d.amount;
+						});
+					})
+				])
+				.nice()
+				.ticks(3);
+				
+				var groups = svg.selectAll("g")
+					.data(dataset)
+					.enter()
+					.append("g");
+
+				groups.append("text")
+					.attr("x", function(d) {
+						if (d.emissions.length != 0) {
+					  	var lastYear = d.emissions[d.emissions.length-1].year;
+					  	return xScale(timeParse(lastYear));
+					  }
+					})
+					.attr("y", function(d) {
+						if (d.emissions.length != 0) {
+					  	var lastAmount = d.emissions[d.emissions.length-1].amount;
+					  	return yScale(lastAmount);
+						}
+					})
+					.attr("dx", "7px")
+					.attr("dy", "4px")
+					.text(function(d) {
+						if (d.emissions.length != 0) {
+							var lastAmount = d.emissions[d.emissions.length-1].amount;
+							if (+lastAmount == 93.1) {
+								return "博士";
+							}
+							else if(+lastAmount == 40.4) {
+								return "硕士";
+						    }
+					}})
+					.attr("class", "linelabel");
+	
+				
+				groups.on("mouseover", mouseoverGroup)
+					  .on("mouseout", mouseoutGroup)
+
+              //4. circles on lines
+				
+				
+				
+
+				var circles = groups.selectAll("circle")
+					.data(function(d) { 
+								return d.emissions; 
+					})
+					.enter()
+					.append("circle");
+
+				circles.attr("cx", function(d) {
+						return xScale(timeParse(d.year));
+					})
+					.attr("cy", function(d) {
+						return yScale(d.amount);
+					})
+					.attr("r", radius)
+					// .attr("fill",function(d) {
+					// 	if(d.myCountry =="博士"){
+					// 	return "#f5ce93"}
+					// 	else if (d.myCountry =="硕士"){
+					// 		"#f5ce93"}
+					// })
+					.attr("fill","#f5ce93")
+					.attr("opacity", 1)
+					.attr("class","circle");
+                
+
+				circles
+					.on("mouseover", mouseoverCircle)
+					.on("mousemove", mousemoveCircle)
+					.on("mouseout",	mouseoutCircle);
+
+				var rects = groups.selectAll("rect")
+					.data(function(d) { 
+								return d.emissions; 
+					})
+					.enter()
+					.append("rect");
+
+				rects.attr("x", function(d) {
+						return xScale(timeParse(d.year))-2;
+					})
+					.attr("y", function(d) {
+						if(d.myCountry =="博士"){
+						return yScale(d.amount);}
+						else{
+							return 0}
+					})
+					.attr("class","rect1")
+					.attr("width", function(d) {
+						if(d.myCountry =="博士"){
+						return 4}
+						else{
+							return 0}
+					})
+					.attr("height",function(d){
+						if(d.year=="2009"){
+							return yScale(81.7)}
+							 else if(d.year=="2010"){
+							return yScale(77.5)}
+							 else if(d.year=="2011"){
+							return yScale(74.1)}
+							 else if(d.year=="2012"){
+							return yScale(70.5)}
+							 else if(d.year=="2013"){
+							return yScale(69.1)}
+							 else if(d.year=="2014"){
+							return yScale(63.3)}
+							 else if(d.year=="2015"){
+							return yScale(59.2)}
+							 else if(d.year=="2016"){
+							return yScale(53.9)}
+							 else if(d.year=="2017"){
+							return yScale(52.2)}
+							 else if(d.year=="2018"){
+							return yScale(47.3)}
+						}
+					)
+					.attr("fill","#a1a3a6")
+
+				// 轴们
+				svg.append("g")
+					.attr("class", "x axis")
+					.attr("transform", "translate(0," + height + ")")
+					.call(xAxis);
+
+				svg.append("g")
+					.attr("class", "y axis")
+					.call(yAxis);
+
+				svg.append("text")
+                 	.attr("class", "yTitle")
+	                .attr("transform", "translate(0,-5)")
+	                .style("text-anchor", "middle")
+	                .attr("dy", "-10")
+	                .text("被引用概率（%）");
+
+            	svg.append("text")
+	                .attr("class", "xTitle")
+	                .attr("transform", "translate(760,570)")
+	                .style("text-anchor", "middle")
+	                .attr("dy", "-10")
+	                .text("年份");
+
+				      var focus = svg.append("g")
+			          .attr("class", "focus")
+
+			    //3.2. mouseover on groups:
+	
+			function mouseoverGroup(d){
+				// the "this" is the g parent node.  That means we can select it, and then select
+				// the child nodes and style them as we want for the hover effect!
+				d3.select(this).select("path").attr("id", "focused"); // overrides the class
+				d3.select(this).select("text").classed("hidden", false);  // show it if "hidden"
+				d3.select(this).select("text").classed("bolder", true);
+			}
+
+			function mouseoutGroup(d){
+				d3.select(this).select("path").attr("id", null); // remove the focus style
+				d3.select(this).select("text").classed("bolder", false); // remove the bolding on label
+			}
+
+//4.2. mouseover on circles:
+
+			function mouseoverCircle(d) {
+
+				d3.select(this)
+					.transition()
+					.style("opacity", 1)
+					.attr("fill","#bc944f")
+					.attr("r", radius * 1.5);
+
+
+				tooltip
+					.style("display", null) 
+					.html(
+						"<p>" + d.myCountry +
+						"<br>年份: " + d.year +
+						"<br>被引用概率：" + d.amount+ "%</p>"
+						);
+			}
+
+			function mousemoveCircle(d) {
+				tooltip
+					.style("top", (d3.event.pageY - 10) + "px" )
+					.style("left", (d3.event.pageX + 10) + "px");
+				}
+
+			function mouseoutCircle(d) {
+				d3.select(this)
+					.transition()
+					.attr("fill","#f5ce93")
+					.attr("opacity", 1)
+					.attr("r", 5);
+
+				d3.selectAll("path.line").classed("unfocused", true).classed("focused", false);
+
+		    	tooltip.style("display", "none");  
+		    }
+
+			});
+
+			
+		</script>
+
+	</body>
+</html>

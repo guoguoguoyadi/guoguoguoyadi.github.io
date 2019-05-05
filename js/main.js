@@ -1,4 +1,5 @@
 
+
 var tooltip = d3.select("body")
                         .append("div")
                         .attr("class", "tooltip");
@@ -505,11 +506,7 @@ function main4(){
 
 function main5(){
 	console.log("5")
-	d3.selectAll("svg")
-	  .style("display","none")
-	  
-	  d3.selectAll("#title3")
-	  .style("display",null)
+	
 	  
 	  
 	
@@ -524,4 +521,7 @@ function main6(){
 function main7(){
 	console.log("7")
 }
+
+
+
 

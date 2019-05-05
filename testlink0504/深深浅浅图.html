@@ -1,0 +1,270 @@
+	<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+<title>无标题文档</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.0/d3.js">
+</script>
+ <script type="text/javascript" src="https://code.jquery.com/jquery-1.9.1.min.js"></script>
+
+ 
+ <style>
+ body{
+	 background-color:#fef0d6}
+	 
+table {
+        border-spacing: 0px;
+        font-family: 'Roboto Condensed', serif;
+        font-size: 90%;
+        margin: 5px;
+		background-color:#fef0d6;
+	
+      }
+     
+
+
+      th, td {
+	    cursor: pointer;
+        padding: 5px;
+        text-align: center;
+		height:20px;
+		width:30px;
+		background-color:rgba(255,255,255,1);
+		font-weight:bold;
+      }
+	  
+      .intro{
+        margin-top: 30px;
+		
+      }
+
+      .wrapper{
+        width: 940px;
+        margin: 40px auto 40px auto;
+      }
+
+      h1 {
+        font-family: 'Lora', serif;
+	text-align:center;
+	margin:o auto;
+      }
+
+      p {
+        font-size: 90%;
+	text-align:center;
+	margin:o auto;
+      }
+	 .tooltip {
+				position:absolute;
+				font-size:14px;
+				font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			
+				margin:o auto;
+				text-align:center;
+				z-index: 10;
+			}
+.selected {
+	background-color:rgba(51,51,51,1);}
+#table {
+
+	margin-left:5vw;
+	margin-right:0px;
+	float:left}
+#tablezhou {
+	float:left;
+	width:3vw;
+	margin-top:200px;}
+#tablezhou p {
+	margin:0 auto;
+	padding:0 auto;}
+	
+    </style>
+</head>
+
+<body>
+ <div class='wrapper'>
+      <h1>研究生毕业论文学术影响力能持续多久呢？ </h1>
+      <div class="intro">
+       
+      </div>
+	  </div>
+      <div id="table">
+	   <p>出版年份</p>
+	  </div>
+	  
+	  <div id="tablezhou">
+	  <p>被</p>
+	  <p>引</p>
+	  <p>年</p>
+	  <p>份</p>
+	  </div>
+    </div><!-- warpper -->
+<script type="application/javascript">
+			
+//d3.csv("list.csv",function(data){
+		//console.log(data);});
+		
+d3.csv("shenshenqianqian.csv", function(error, data){
+    if (error) throw error;
+    console.log(data);
+   
+   
+   var tooltip = d3.select("body")
+                        .append("div")
+                        .attr("class", "tooltip");
+    var matrix = [];
+	var differentcolor = [1,153048] ;
+    data.forEach(function(d,i){
+      d.a2018 = +d.a2018;
+	  d.a2017 = +d.a2017;
+	  d.a2016 = +d.a2016;
+	  d.a2015 = +d.a2015;
+	  d.a2014 = +d.a2014;
+	  d.a2013 = +d.a2013;
+	  d.a2012 = +d.a2012;
+	  d.a2011 = +d.a2011;
+	  d.a2010 = +d.a2010;
+	  d.a2009 = +d.a2009;
+	  d.a2008 = +d.a2008;
+	  d.a2007 = +d.a2007;
+	  d.a2006 = +d.a2006;
+	  d.a2005 = +d.a2005;
+	  d.a2004 = +d.a2004;
+	  d.a2003 = +d.a2003;
+	  d.a2002 = +d.a2002;
+	  d.a2001 = +d.a2001;
+	  d.a2000 = +d.a2000;
+	  d.a1999 = +d.a1999;
+	  d.a1998 = +d.a1998;
+	  d.a1997 = +d.a1997;
+	  d.a1996 = +d.a1996;
+	  d.a1995 = +d.a1995;
+	  d.a1994 = +d.a1994;
+	  d.a2019 = +d.a2019;
+	 
+	  
+      matrix.push([d.a1994,d.a1995,d.a1996,d.a1997,d.a1998,d.a1999,d.a2000,d.a2001,d.a2002,d.a2003,d.a2004,d.a2005,d.a2006,d.a2007,d.a2008,d.a2009,d.a2010,d.a2011,d.a2012,d.a2013,d.a2014,d.a2015,d.a2016,d.a2017,d.a2018,d.a2019])
+	  
+
+    })
+	console.log("matrix",matrix)
+	var colorScale = d3.scaleLinear() //定义一个颜色的函数，方面后面再style中直接调用函数
+            .domain(d3.extent(differentcolor))//最大的数据和最小的数据中间的差范围是什么
+            .range(["rgba(210,167,92,0.2)", "rgba(181,117,6,1)"])//用这个颜色到那个颜色一一对应
+   
+    console.log(matrix)
+    
+    var Table = d3.select("#table");
+    var table = Table.append("table");
+    var tr = table.selectAll("tr")
+      .data(matrix)
+      .enter()
+      .append("tr");
+	
+
+    var td = tr.selectAll("td")
+      .data(function(d) { return d; })
+      .enter()
+      .append("td")
+      .text(function(d,i){ if( i == 25){return d} })
+	  .style('color', 'grey')
+	  .style("background-color", function(d,i) {
+        
+         if (i == 25){
+                return "#fef0d6" ;}//为什么一定要把i这个if放在第一个就可以实现效果呢？把他放到else if 里就不行
+		else if (d != 0){return colorScale(d)}
+		else  { return "#fef0d6"}
+            })
+	   .on("mouseover", mouseoverFunc) 
+       .on("mousemove", mousemoveFunc)
+       .on("mouseout", mouseoutFunc);
+	   
+
+		
+    //  and then, build the t-head
+    var header = table.append("thead").append("tr");
+	
+	 
+			
+			
+    var headerObjs = [ 
+            { label: "1984" },
+            { label: "1985" },
+            { label: "1986" },
+            { label: "1987"},
+            { label: "1988"},
+            { label: "1989" },
+			{ label: "1990" },
+            { label: "1991" },
+            { label: "1992" },
+            { label: "1993"},
+            { label: "1994"},
+            { label: "1995" },
+			{ label: "1996" },
+            { label: "1997" },
+            { label: "1998" },
+            { label: "1999"},
+            { label: "2010"},
+            { label: "2011" },
+			{ label: "2012" },
+            { label: "2013" },
+            { label: "2014" },
+            { label: "2015"},
+            { label: "2016"},
+            { label: "2017" },
+			{ label: "2018"},
+			
+           
+			
+          ];
+    header
+      .selectAll("th")
+      .data(headerObjs)
+      .enter()
+      .append("th")
+      .text(function(d){ return d.label; })
+	  .style('color', 'grey')
+	  .style("background-color","#fef0d6")
+    
+	
+	
+	 function mouseoverFunc(d,i) {
+            // console.log(d);
+			if (d != 0 && i != 25){
+            return tooltip
+                .style("display", null) // 区别"none": 不呈现；"null": 取消之前所有给display的属性。
+                .html("<div>" +"引用了" + d +"篇" +"</div>")
+			
+           
+			,d3.select(this).style("display", null)//,返回两个值
+		       .style("background-color","rgba(210,74,74,1)")}
+		
+		 
+       };
+
+        function mousemoveFunc(d,i) {
+            // console.log("events", window.event, d3.event);
+		 if (d != 0 && i != 25){
+            return tooltip
+                .style("top", (d3.event.pageY -15) + "px" )
+                .style("left", (d3.event.pageX + 10) + "px")
+			,d3.select(this).style("background-color","rgba(210,74,74,1)")
+		 }
+        }
+
+        function mouseoutFunc(d,i) {
+			if (d != 0 && i != 25){
+            return tooltip.style("display", "none")
+			
+			,d3.select(this).style("background-color", function(d,i) {
+                return colorScale(d)})
+        }}
+
+
+
+            })//引入csv
+
+</script>
+</body>
+</html>
+

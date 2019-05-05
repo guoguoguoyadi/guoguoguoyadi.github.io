@@ -1,0 +1,1054 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<title>Test Link</title>
+<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.0/d3.js"></script>
+<script src="js/echarts.min.js"></script>
+<link href="https://fonts.googleapis.com/css?family=Raleway:200,400" rel="stylesheet">
+<style>
+
+body{
+	background-color: #fef0d6;
+}
+table {
+        border-spacing: 0px;
+        font-family: 'Roboto Condensed', serif;
+        font-size: 90%;
+        margin: 50px 180px;
+		background-color:#fef0d6;
+	
+      }
+     
+
+
+      th, td {
+	    cursor: pointer;
+        padding: 5px;
+        text-align: center;
+		height:20px;
+		width:30px;
+		background-color:rgba(255,255,255,1);
+      }
+      .wrapper{
+        width: 940px;
+        margin: 40px auto 40px auto;
+      }
+
+      .selected {
+	background-color:rgba(51,51,51,1);}
+
+	 .tooltip {
+				position:absolute;
+				font-size:14px;
+				font-family:"Lucida Sans Unicode", "Lucida Grande", sans-serif;
+			
+				margin:o auto;
+				text-align:center;
+				z-index: 10;
+			}
+
+	path.line {
+				fill: none;
+				/*stroke: #a1a3a6;*/
+				stroke-width: 3px;
+			}
+
+
+			.axis path,
+			.axis line {
+				fill: none;
+				stroke: grey;
+				stroke-width: 1px;
+				
+			}
+
+			.axis text {
+				font-family: sans-serif;
+				font-size: 10px;
+			}
+
+			text.linelabel {
+				font-size: 12pt;
+				fill:#f5ce93 ;
+
+			}
+
+			.overlay {
+		      fill: none;
+		      pointer-events: all;
+		    }
+
+		    circle, path:hover {
+				cursor: pointer;
+			}
+
+            #focused {
+				stroke:#bc944f;
+				stroke-width: 3.5px;
+			}
+
+			
+
+			text.hidden {
+				display: none;
+			}
+
+			text.bolder {
+				font-weight: bolder;
+			}
+
+	        .tooltip1{
+                position:absolute;
+                z-index: 10;
+            }
+
+            .tooltip1 p{
+                background-color: white;
+                color:grey;
+                border:grey 1px solid;
+                padding:2px;
+            }
+            nav
+    {
+          margin: auto;
+          margin-top: 40px;
+          position: relative;
+          width: 20vw;
+          height: 23vw;
+          left:0;
+    }
+    nav h2
+    {
+          width:200px;
+          border-radius: 2px;
+          position: relative;
+          background: tomato;
+          height: 40px;
+          text-transform: uppercase;
+          color: ivory;
+          font-weight: 200;
+          display: flex;
+          flex: 1;
+          justify-content: center;
+          align-items: center;
+          box-shadow: 4px 4px 20px -2px rgba(0,0,0,.35);
+          transition: all .4s;
+    }
+    nav ul
+    {
+          padding-left: 0;
+          padding-top: 0;
+          margin-top: 0;
+          list-style: none;
+          overflow: hidden;
+          text-align: right;
+          margin-bottom: 22px;
+          text-align: center;
+          transition: all .4s ease-out;
+          height: 100%;
+          width: 200px;
+    }
+    nav ul li
+    {
+          border-radius: 2px;
+          position: relative;
+          display: inline-block;
+          line-height: 1.5;
+          width: 200px;
+          margin: 0;
+          margin-bottom: 10px;
+          background: tomato;
+          transition: background 3s;
+          box-shadow: 2px 2px 10px -2px rgba(0,0,0,.35);
+          color:rgb(255,255,255);
+    }
+    nav:hover h2{
+  transform: translateY(-2px);
+  box-shadow: 2px 2px 5px -1px rgba(0,0,0,.35);
+ }
+nav:hover:active h2{
+  transform: translateY(10px);
+  box-shadow: 0px -1px 2px 0px rgba(0,0,0,.35);
+ }
+
+
+input {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 100%;
+  z-index: 1;
+  opacity: 0;
+  cursor: pointer;
+  height: 40px;
+}
+
+#toggle:checked ~ul {
+  height: 0%;
+}
+    nav ul li:hover {
+  background: mediumorchid;
+  transition: background .45s;
+}
+#yinlaoshi div{float:left}
+    
+</style>
+
+</head>
+
+<body>
+
+<div>
+	
+<h1>你的毕业论文学术影响力有多大?</h1>
+<img src="img/主视觉.jpg" width=80% style="text-align:center" alt=""/>
+</div>
+
+			<div class="front_part">
+					<p>（采访切入）采访对象：中国农业大学应届研究生或博士生A某 </p>
+<p>毕业季来临，A某作为xxx专业的的博士/硕士研究生，马上就要毕业了，他在电脑上一字一句地对自己的毕业论文进行着最后的修改，此时的他还不知道，作为几十万名研究生的一员，自己的论文将会给学术界带来什么。
+</p>
+ <h1>Part1：背景</h1>
+ <p>从知网来看，研究生毕业论文数量不多，但是被引概率很大。<br>
+（此部分图片随着文字滚动变化而变化）<br>
+1984—2018年，知网上总共109007112篇论文</p>
+
+ <div>
+ <img src="img/1.png" width= 300px height=300px alt=""/></div>
+ <p>只有27.3%的论文被引用</p>
+ <div>
+ <img src="img/2.png" width= 300px height=300px alt=""/></div>
+ <p>所有论文中，毕业论文只占3.7%</p>
+ <div>
+ <img src="img/3.png" width= 300px height=300px alt=""/></div>
+ <p>而毕业论文被引用占比高达64.1%，远远高于整体水平。</p>
+ <div>
+ <img src="img/4.png" width= 300px height=300px alt=""/></div>
+</div>
+
+<div>
+<h1>Part2：研究生毕业论文影响力整体情况</h1>
+<p>1、研究生毕业论文会被引用到哪里去<br>
+由于毕业论文总数较少，所以在所有被引的论文中，毕业论文占比并不高。（鼠标悬浮可交互）</p>
+<div id="main1" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main1'));
+
+        // 指定图表的配置项和数据
+
+        var sourceData = [{
+        name: '期刊',
+        nameValue: 40978133,
+        valueUnit: "篇"
+    },
+    {
+        name: '会议',
+        nameValue: 3914782,
+        valueUnit: "篇"
+    },
+    {
+        name: '学位',
+        nameValue: 335681,
+        valueUnit: "篇"
+    },
+    {
+        name: '核心期刊',
+        nameValue: 10068573,
+        valueUnit: "篇"
+    },
+    {
+        name: 'EI和SCI期刊',
+        nameValue: 2287863,
+        valueUnit: "篇"
+    },
+    {
+        name: '其他期刊',
+        nameValue: 11533850,
+        valueUnit: "篇"
+    },
+    {
+        name: '会议论文',
+        nameValue: 2192428,
+        valueUnit: "篇"
+    },
+    {
+        name: '学位论文',
+        nameValue: 19145882,
+        valueUnit: "篇"
+    }
+];
+var sangjiColor = ['#f4ce92', '#f2b87e', '#C8B083', '#f4ce92', '#f4ce92', '#f4ce92', '#f2b87e', '#C8B083'];
+var itemStyleSource = [];
+for (let d = 0; d < sourceData.length; d++) {
+    sourceData[d].itemStyle = {
+        normal: {
+            color: sangjiColor[d]
+        }
+    }
+    itemStyleSource.push(sourceData[d]);
+}
+
+option = {
+    backgroundColor: "#feefd7",
+    series: [{
+        type: 'sankey',
+        layout: 'none',
+        top: "12%",
+        bottom: '21%',
+        left: '3%',
+        focusNodeAdjacency: 'allEdges',
+        data: itemStyleSource,
+        links: [{
+                source: '期刊',
+                target: '核心期刊',
+                value: 9502106
+            },
+            {
+                source: '期刊',
+                target: 'EI和SCI期刊',
+                value: 2175095
+            },
+            {
+                source: '期刊',
+                target: '其他期刊',
+                value: 10631748
+            },
+            {
+                source: '期刊',
+                target: '会议论文',
+                value: 2081742
+            },
+            {
+                source: '期刊',
+                target: '学位论文',
+                value: 16587442
+            },
+            {
+                source: '会议',
+                target: '核心期刊',
+                value: 531506
+            },
+            {
+                source: '会议',
+                target: 'EI和SCI期刊',
+                value: 106706
+            },
+            {
+                source: '会议',
+                target: '其他期刊',
+                value: 795454
+            },
+            {
+                source: '会议',
+                target: '会议论文',
+                value: 94917
+            },
+            {
+                source: '会议',
+                target: '学位论文',
+                value: 2386199
+            },
+            {
+                source: '学位',
+                target: '核心期刊',
+                value: 34961
+            },
+            {
+                source: '学位',
+                target: 'EI和SCI期刊',
+                value: 6062
+            },
+            {
+                source: '学位',
+                target: '其他期刊',
+                value: 106648
+            },
+            {
+                source: '学位',
+                target: '会议论文',
+                value: 15769
+            },
+            {
+                source: '学位',
+                target: '学位论文',
+                value: 172241
+            }
+        ],
+        label: {
+            normal: {
+                color: "#000",
+                fontSize: 10,
+                formatter: function(params, i) {
+                    console.log(params);
+                    return "{white|" + params.data.name + "}" + params.data.nameValue + " " + params.data.valueUnit;
+                },
+                rich: {
+                    white: {
+                        fontSize: 10,
+                        padding: [0, 0, 0, 0]
+                    }
+                }
+            }
+
+        },
+        lineStyle: {
+            normal: {
+                color: 'source',
+                curveness: 0.5,
+                opacity:0.7
+                }
+        },
+        itemStyle: {
+            normal: {
+                borderWidth: 1,
+                borderColor: 'transparent'
+            }
+        }
+    }]
+}
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+
+<div id="main2" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main2'));
+
+        // 指定图表的配置项和数据
+
+       var sourceData = [
+    {
+        name: '学位',
+        nameValue: 335681,
+        valueUnit: "篇"
+    },
+    {
+        name: '核心期刊',
+        nameValue: 10068573,
+        valueUnit: "篇"
+    },
+    {
+        name: 'EI和SCI期刊',
+        nameValue: 2287863,
+        valueUnit: "篇"
+    },
+    {
+        name: '其他期刊',
+        nameValue: 11533850,
+        valueUnit: "篇"
+    },
+    {
+        name: '会议论文',
+        nameValue: 2192428,
+        valueUnit: "篇"
+    },
+    {
+        name: '学位论文',
+        nameValue: 19145882,
+        valueUnit: "篇"
+    }
+];
+var sangjiColor = [ '#C8B083', '#f4ce92', '#f4ce92', '#f4ce92', '#f2b87e', '#C8B083'];
+var itemStyleSource = [];
+for (let d = 0; d < sourceData.length; d++) {
+    sourceData[d].itemStyle = {
+        normal: {
+            color: sangjiColor[d]
+        }
+    }
+    itemStyleSource.push(sourceData[d]);
+}
+
+option = {
+    backgroundColor: "#feefd7",
+    series: [{
+        type: 'sankey',
+        layout: 'none',
+        top: "12%",
+        bottom: '21%',
+        left: '3%',
+        focusNodeAdjacency: 'allEdges',
+        data: itemStyleSource,
+        links: [
+            {
+                source: '学位',
+                target: '核心期刊',
+                value: 34961
+            },
+            {
+                source: '学位',
+                target: 'EI和SCI期刊',
+                value: 6062
+            },
+            {
+                source: '学位',
+                target: '其他期刊',
+                value: 106648
+            },
+            {
+                source: '学位',
+                target: '会议论文',
+                value: 15769
+            },
+            {
+                source: '学位',
+                target: '学位论文',
+                value: 172241
+            }
+        ],
+        label: {
+            normal: {
+                color: "#000",
+                fontSize: 10,
+                formatter: function(params, i) {
+                    console.log(params);
+                    return "{white|" + params.data.name + "}" + params.data.nameValue + " " + params.data.valueUnit;
+                },
+                rich: {
+                    white: {
+                        fontSize: 10,
+                        padding: [0, 0, 0, 0]
+                    }
+                }
+            }
+
+        },
+        lineStyle: {
+            normal: {
+                color: 'source',
+                curveness: 0.5,
+                opacity:0.5
+                }
+        },
+        itemStyle: {
+            normal: {
+                borderWidth: 1,
+                borderColor: 'transparent'
+            }
+        }
+    }]
+}
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+    </script>
+    <div id="main3" style="width: 600px;height:400px;"></div>
+    <script type="text/javascript">
+        // 基于准备好的dom，初始化echarts实例
+        var myChart = echarts.init(document.getElementById('main3'));
+
+        // 指定图表的配置项和数据
+
+var sourceData = [
+    {
+        name: '学位',
+        nameValue: 335681,
+        valueUnit: "篇"
+    },
+    {
+        name: '核心期刊',
+        nameValue: 10068573,
+        valueUnit: "篇"
+    },
+    {
+        name: 'EI和SCI期刊',
+        nameValue: 2287863,
+        valueUnit: "篇"
+    },
+    {
+        name: '其他期刊',
+        nameValue: 11533850,
+        valueUnit: "篇"
+    },
+    {
+        name: '会议论文',
+        nameValue: 2192428,
+        valueUnit: "篇"
+    },
+    {
+        name: '学位论文',
+        nameValue: 19145882,
+        valueUnit: "篇"
+    }
+];
+var sangjiColor = [ '#C8B083','#d24a4a', '#f4ce92', '#f4ce92', '#f2b87e', '#C8B083'];
+var itemStyleSource = [];
+for (let d = 0; d < sourceData.length; d++) {
+    sourceData[d].itemStyle = {
+        normal: {
+            color: sangjiColor[d]
+        }
+    }
+    itemStyleSource.push(sourceData[d]);
+}
+
+option = {
+    backgroundColor: "#feefd7",
+    series: [{
+        type: 'sankey',
+        layout: 'none',
+        top: "12%",
+        bottom: '21%',
+        left: '3%',
+        focusNodeAdjacency: 'allEdges',
+        data: itemStyleSource,
+        links: [
+            {
+                source: '学位',
+                target: '核心期刊',
+                value: 34961
+            },
+            {
+                source: '学位',
+                target: 'EI和SCI期刊',
+                value: 6062
+            },
+            {
+                source: '学位',
+                target: '其他期刊',
+                value: 106648
+            },
+            {
+                source: '学位',
+                target: '会议论文',
+                value: 15769
+            },
+            {
+                source: '学位',
+                target: '学位论文',
+                value: 172241
+            }
+        ],
+        label: {
+            normal: {
+                color: "#000",
+                fontSize: 10,
+                formatter: function(params, i) {
+                    console.log(params);
+                    return "{white|" + params.data.name + "}" + params.data.nameValue + " " + params.data.valueUnit;
+                },
+                rich: {
+                    white: {
+                        fontSize: 10,
+                        padding: [0, 0, 0, 0]
+                    }
+                }
+            }
+
+        },
+        lineStyle: {
+            normal: {
+                color: 'source',
+                curveness: 0.5,
+                opacity:0.5
+                }
+        },
+        itemStyle: {
+            normal: {
+                borderWidth: 1,
+                borderColor: 'transparent'
+            }
+        }
+    }]
+}
+
+        // 使用刚指定的配置项和数据显示图表。
+        myChart.setOption(option);
+
+        d3.csv("shenshenqianqian.csv", function(error, data){
+    if (error) throw error;
+    console.log(data);
+   // prepare data
+   var tooltip = d3.select("body")
+                        .append("div")
+                        .attr("class", "tooltip");
+    var matrix = [];
+	var differentcolor = [1,153048] ;
+    data.forEach(function(d,i){
+      d.a2018 = +d.a2018;
+	  d.a2017 = +d.a2017;
+	  d.a2016 = +d.a2016;
+	  d.a2015 = +d.a2015;
+	  d.a2014 = +d.a2014;
+	  d.a2013 = +d.a2013;
+	  d.a2012 = +d.a2012;
+	  d.a2011 = +d.a2011;
+	  d.a2010 = +d.a2010;
+	  d.a2009 = +d.a2009;
+	  d.a2008 = +d.a2008;
+	  d.a2007 = +d.a2007;
+	  d.a2006 = +d.a2006;
+	  d.a2005 = +d.a2005;
+	  d.a2004 = +d.a2004;
+	  d.a2003 = +d.a2003;
+	  d.a2002 = +d.a2002;
+	  d.a2001 = +d.a2001;
+	  d.a2000 = +d.a2000;
+	  d.a1999 = +d.a1999;
+	  d.a1998 = +d.a1998;
+	  d.a1997 = +d.a1997;
+	  d.a1996 = +d.a1996;
+	  d.a1995 = +d.a1995;
+	  d.a1994 = +d.a1994;
+	 
+	  
+      matrix.push([d.a1994,d.a1995,d.a1996,d.a1997,d.a1998,d.a1999,d.a2000,d.a2001,d.a2002,d.a2003,d.a2004,d.a2005,d.a2006,d.a2007,d.a2008,d.a2009,d.a2010,d.a2011,d.a2012,d.a2013,d.a2014,d.a2015,d.a2016,d.a2017,d.a2018])
+	  
+
+    })
+	var colorScale = d3.scaleLinear() //定义一个颜色的函数，方面后面再style中直接调用函数
+            .domain(d3.extent(differentcolor))//最大的数据和最小的数据中间的差范围是什么
+            .range(["rgba(210,167,92,0.2)", "rgba(181,117,6,1)"])//用这个颜色到那个颜色一一对应
+   
+    console.log(matrix)
+    
+    var body = d3.select("#table");
+    var table = body.append("table");
+    var tr = table.selectAll("tr")
+      .data(matrix)
+      .enter()
+      .append("tr");
+	
+    var td = tr.selectAll("td")
+      .data(function(d) { return d; })
+ 
+      .enter()
+      .append("td")
+      //.text(function(d){ return d; })
+	  .style("background-color", function(d) {
+        
+         if (d != 0){
+                return colorScale(d);}
+				else { return "#fef0d6"}
+            })
+	   .on("mouseover", mouseoverFunc) 
+       .on("mousemove", mousemoveFunc)
+       .on("mouseout", mouseoutFunc);
+	   
+
+		
+    //  and then, build the t-head
+    var header = table.append("thead").append("tr");
+	
+	 
+			
+			
+    var headerObjs = [ 
+            { label: "1984" },
+            { label: "1985" },
+            { label: "1986" },
+            { label: "1987"},
+            { label: "1988"},
+            { label: "1989" },
+			{ label: "1990" },
+            { label: "1991" },
+            { label: "1992" },
+            { label: "1993"},
+            { label: "1994"},
+            { label: "1995" },
+			{ label: "1996" },
+            { label: "1997" },
+            { label: "1998" },
+            { label: "1999"},
+            { label: "2010"},
+            { label: "2011" },
+			{ label: "2012" },
+            { label: "2013" },
+            { label: "2014" },
+            { label: "2015"},
+            { label: "2016"},
+            { label: "2017" },
+			{ label: "2018"},
+			
+           
+			
+          ];
+    header
+      .selectAll("th")
+      .data(headerObjs)
+      .enter()
+      .append("th")
+      .text(function(d){ return d.label; })
+      .style('color', 'grey')
+	  .style("background-color","#fef0d6")
+
+	
+	
+	 function mouseoverFunc(d) {
+            // console.log(d);
+			if (d != 0){
+            return tooltip
+                .style("display", null) // 区别"none": 不呈现；"null": 取消之前所有给display的属性。
+                .html("<div>" +"引用了" + d +"篇" +"</div>")
+			
+           
+			,d3.select(this).style("display", null)
+		       .style("background-color",function(d){if(d != 0 ){return "rgba(210,74,74,1)"} else {return "#fef0d6"}})
+      }  };
+
+        function mousemoveFunc(d) {
+            // console.log("events", window.event, d3.event);
+			
+            return tooltip
+                .style("top", (d3.event.pageY -15) + "px" )
+                .style("left", (d3.event.pageX + 10) + "px")
+			,d3.select(this).style("background-color",function(d){if(d != 0 ){return "rgba(210,74,74,1)"}
+			else {return "#fef0d6"}})
+        }
+
+        function mouseoutFunc(d) {
+            return tooltip.style("display", "none")
+			,d3.select(this).style("background-color", function(d) {
+              // 最后一列"difference"给颜色:
+         if (d != 0){
+                return colorScale(d);}
+				else { return "#fef0d6"}
+            })
+        }
+
+
+            })
+
+    </script>
+
+<p>2、与期刊相比，研究生毕业论文贡献总量小但是贡献比率高<br>
+核心期刊是能够代表专业学科发展水平的专业期刊，被核心期刊引用情况可以衡量一篇论文的学术贡献。在核心期刊引用的所有文献中，与期刊相比，研究生毕业论文的身影极少。（最后做成交互形式）
+<div><img src="img/8.png" /></div>
+<div><img src="img/9.png" /></div>
+</p>
+
+<p>3、毕业论文有保质期吗？<br>
+	其实，毕业论文发表的两三年后，才是被大量引用的时间，两三年之后，对学术研究的贡献就会逐渐变小。学位论文的影响力是有时间限制的。（鼠标悬浮可交互）</p>
+	<div class='wrapper'>
+      <div class="intro">
+        <p></p>
+        <p></p>
+      </div>
+      <div id="table"></div>
+    </div>
+<div>
+<h1>Part3：研究生毕业论文内部细节差异</h1>
+<p>A某作为农业科技领域的博士生，他所在的研究领域和学历层次的毕业论文，会有更大概率被引用吗？（插入一些他写论文、做研究的细节） 
+近十年来，各研究领域之间的研究生毕业论文被引用概率这几年变化大吗？各领域之间差别大吗？所有学科被引用概率都呈现上升趋势，农业科技的论文引用概率一直领先，医药卫生科技概率最低，但是近些年上升趋势在加快。（点击下方链接可看Tableau效果。最后会做成可交互，选择一个学科可以看见引用量前三的论文情况。）</p></div>
+
+<div><img src="img/5.png" width="40%"/>
+<p><a href="https://public.tableau.com/profile/.87961555#!/vizhome/2117/1_1?publish=yes">链接</a></p>
+<p>各学科毕业论文论文发表篇数越多，被引用概率就会越高吗？
+农业科技论文虽然篇数为倒数第二位，但是被引用的可能性有67%，是最大的！
+</p>
+<img src="img/6.png" width="50%"/>
+<p>2、硕博之间差距大吗？<br>
+采访学生故事：A某从硕士走到博士，学习科研方式和心理的变化，撰写博士毕业论文与几年前写的硕士论文相比，有了什么区别？</p>
+<img src="img/7.png" width="40%"/>
+
+<p>博士的毕业论文比硕士更有可能被引用，虽然硕博被引用率都在上升，但是硕博之间的差距在逐年扩大。
+硕士和博士之间只差了3-5年，为什么毕业论文的差距如此之大？（分别采访专家和硕士、博士的导师）</p>
+
+<h1>Part4：与国外的论文引用情况对比，反思我国的研究生培养现状</h1>
+
+<p>根据科技部中国科学技术信息研究所发表的结果显示，2007年至2017年间，我国科技人员发表的国际论文篇数、被引用次数跃居世界第二，仅次于美国。但是，篇均被引用次数为9.4次，仅排世界第十五位。我国科研论文体量大，但是学术影响力并没有达到世界一流水平。<br>
+研究生是教育的最高学历，一定程度上一个国家研究生的水平代表着这个国家的科研潜力。因此，研究生的培养，对我国科研能力的提高至关重要。<br>
+（采访教育专家：国内外研究生论文实力的差距如何，表现在什么方面？如何提高我国的研究生培养质量？国外有何借鉴之处？）<br>
+A某修改完论文的最后一处，合上电脑，回想自己六年的研究生生涯。打印机不断轰鸣，几万字的心血化为一沓厚厚的纸张。这份论文最终会去向何处呢？（未全部完成，目前再次点击下拉菜单会收回）</p>
+
+<div id="yinlaoshi">
+<div style="margin-top:15px;margin-left:5px;margin-right:5px">
+    <h1>假如我在</h1>
+</div>
+<div style="width:200px">
+    <nav>
+     <h2 id="h1">年份</h2>
+      <input id="toggle" type="checkbox" checked>
+   <ul>
+     <li><a onclick="change1()">2018</a></li>
+     <li><a onclick="change2()">2017</a></li>
+     <li><a onclick="change3()">2016</a></li>
+     <li><a onclick="change4()">2015</a></li>
+     <li><a onclick="change5()">2014</a></li>
+     <li><a onclick="change6()">2013</a></li>
+     <li><a onclick="change7()">2012</a></li>
+     <li><a onclick="change8()">2011</a></li>
+     <li><a onclick="change9()">2010</a></li>
+     <li><a onclick="change10()">2009</a></li>
+   </ul>
+   </nav>
+</div>
+<div style="margin-top:15px;margin-left:5px;margin-right:5px">
+    <h1>发表了主题关于</h1>
+</div>
+<div style="width:200px">
+    <nav>
+     <h2 id="h2">关键词</h2>
+      <input id="toggle" type="checkbox" checked>
+   <ul>
+     <li><a onclick="change11()">哲学</a></li>
+     <li><a onclick="change12()">经济学</a></li>
+     <li><a onclick="change13()">法学</a></li>
+     <li><a onclick="change14()">教育学</a></li>
+     <li><a onclick="change15()">文学</a></li>
+     <li><a onclick="change16()">历史学</a></li>
+     <li><a onclick="change17()">管理学</a></li>
+     <li><a onclick="change18()">理学</a></li>
+     <li><a onclick="change19()">工学</a></li>
+     <li><a onclick="change20()">农学</a></li>
+     <li><a onclick="change21()">医学</a></li>
+   </ul>
+   </nav>
+</div>
+<div style="margin-top:15px;margin-left:5px;margin-right:5px">
+    <h1>的</h1>
+</div>
+<div style="width:200px">
+    <nav>
+     <h2 id="h3">层次</h2>
+      <input id="toggle" type="checkbox" checked>
+   <ul>
+     <li><a onclick="change22()">硕士</a></li>
+     <li><a onclick="change23()">博士</a></li>
+   </ul>
+   </nav>
+</div>
+<div style="margin-top:15px;margin-left:5px;margin-right:5px">
+    <h1>学位论文（点击可选择交互）</h1>
+</div>
+<div>
+<img src="img/Back.jpg" width="50%"/>
+</div>
+</div>
+
+
+
+<script>
+    function change1()
+    {
+        document.getElementById("h1").innerHTML="2018"
+    }
+    function change2()
+    {
+        document.getElementById("h1").innerHTML="2017"
+    }
+    function change3()
+    {
+        document.getElementById("h1").innerHTML="2016"
+    }
+    function change4()
+    {
+        document.getElementById("h1").innerHTML="2015"
+    }
+    function change5()
+    {
+        document.getElementById("h1").innerHTML="2014"
+    }
+    function change6()
+    {
+        document.getElementById("h1").innerHTML="2013"
+    }
+    function change7()
+    {
+        document.getElementById("h1").innerHTML="2012"
+    }
+    function change8()
+    {
+        document.getElementById("h1").innerHTML="2011"
+    }
+    function change9()
+    {
+        document.getElementById("h1").innerHTML="2010"
+    }
+    function change10()
+    {
+        document.getElementById("h1").innerHTML="2009"
+    }
+    function change11()
+    {
+        document.getElementById("h2").innerHTML="哲学"
+    }
+    function change12()
+    {
+        document.getElementById("h2").innerHTML="经济学"
+    }
+    function change13()
+    {
+        document.getElementById("h2").innerHTML="法学"
+    }
+    function change14()
+    {
+        document.getElementById("h2").innerHTML="教育学"
+    }
+    function change15()
+    {
+        document.getElementById("h2").innerHTML="文学"
+    }
+    function change16()
+    {
+        document.getElementById("h2").innerHTML="历史学"
+    }
+    function change17()
+    {
+        document.getElementById("h2").innerHTML="管理学"
+    }
+    function change18()
+    {
+        document.getElementById("h2").innerHTML="理学"
+    }
+    function change19()
+    {
+        document.getElementById("h2").innerHTML="工学"
+    }
+    function change20()
+    {
+        document.getElementById("h2").innerHTML="农学"
+    }
+    function change21()
+    {
+        document.getElementById("h2").innerHTML="医学"
+    }
+    function change22()
+    {
+        document.getElementById("h3").innerHTML="硕士"
+    }
+    function change23()
+    {
+        document.getElementById("h3").innerHTML="博士"
+    }
+    function hName() {
+        setInterval(1)
+        console.log(document.getElementById("h2"))
+    }
+    setTimeout(hName,1)
+   </script>
+   </div>
+
+
+
+				</div>
+			
+
+</body>
+
+
+    <!-- js线上lib -->
+    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.0/d3.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+ 
+
+    <!-- d3线上lib -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    
+
+    <!-- jquery线上lib -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+    <!-- js -->
+    <script type="text/javascript" src="js/prep.js"></script>
+    <script type="text/javascript" src="js/main.js"></script>
+    <script type="text/javascript" src="js/scroll.js"></script>
+    <script src="js/isotope.pkgd.min.js"></script>
+
+</html>
