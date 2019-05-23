@@ -6,12 +6,12 @@
 
 
 function main1(){
-	 console.log("1")
+	 // console.log("1")
 	
 	   
 						
 		d3.csv("juzhen.csv", function(data) {
-                console.log(data)
+                // console.log(data)
 			
 			xScale.domain(
 				d3.extent(data, function(d) {
@@ -50,13 +50,18 @@ function main1(){
 				.attr("r","7") 
 				 
         
+
 				svg.append("text")
-					.attr("id", "title1")
-					.attr("transform", "translate(" + (width / 2) + " ," +
-								-30 + ")")
+					.attr("class", "title1")	
+
+				svg.select(".title1")			
+					.attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(1.15*height) + ")")
 					.style("text-anchor", "middle")
-					.attr("dy", "12")
-					.text("100个点表示全部论文的100%");
+					.attr("fill","grey")
+					.text("1个点表示约109万篇论文");	
+			
+			
 
 			
 		});
@@ -65,7 +70,7 @@ function main1(){
           
             return tooltip
                 .style("display", null) // 区别"none": 不呈现；"null": 取消之前所有给display的属性。
-                .html("<div>人民币</div>" 
+                .html("<div></div>" 
 				)}
 
         function mousemoveFunc(d) {
@@ -88,7 +93,7 @@ function main2(){
 	  
 									
 		d3.csv("juzhen.csv", function(data) {
-                console.log(data)
+                // console.log(data)
 			
 			xScale.domain(
 				d3.extent(data, function(d) {
@@ -135,18 +140,30 @@ function main2(){
 					.style("opacity", 0)
 					.remove();
 
+				svg.append("text")
+					.attr("class", "title1")	
+
+					svg.select(".title1")			
+					.attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(1.15*height) + ")")
+					.style("text-anchor", "middle")
+					.attr("fill","grey")
+					.text("1个点表示约109万篇论文");		
+			
+			
+
 		});
 		
    
 		function mouseoverFunc(d) {
-          console.log(d);
+          // console.log(d);
             return tooltip
                 .style("display", null) 
-                .html("<div>11111</div>" )
+                .html("<div></div>" )
 				}
 
         function mousemoveFunc(d) {
-          console.log("events", window.event, d3.event);
+          // console.log("events", window.event, d3.event);
             return tooltip
                 .style("top", (d3.event.pageY - 10) + "px" )
                 .style("left", (d3.event.pageX + 10) + "px");
@@ -161,10 +178,10 @@ function main2(){
 
 function main4(){
 	
-	 console.log("4")
+	 // console.log("4")
 						
 		d3.csv("juzhen.csv", function(data) {
-                console.log(data)
+                // console.log(data)
 			xScale.domain(
 				d3.extent(data, function(d) {
 					return +d.x;
@@ -213,20 +230,33 @@ function main4(){
 					.duration(400)
 					.style("opacity", 0)
 					.remove();
+
+
+					svg.append("text")
+					.attr("class", "title1")	
+
+					svg.select(".title1")			
+					.attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(1.15*height) + ")")
+					.style("text-anchor", "middle")
+					.attr("fill","grey")
+					.text("1个点表示约109万篇论文");		
+			
+			
 		
 		});
 
 
    
 		function mouseoverFunc(d) {
-          console.log(d);
+          // console.log(d);
             return tooltip
                 .style("display", null)
-                .html("<div>11111</div>" )
+                .html("<div></div>" )
 				}
 
         function mousemoveFunc(d) {
-          console.log("events", window.event, d3.event);
+          // console.log("events", window.event, d3.event);
             return tooltip
                 .style("top", (d3.event.pageY - 10) + "px" )
                 .style("left", (d3.event.pageX + 10) + "px");
@@ -238,11 +268,11 @@ function main4(){
 }
 
 function main5(){
-	  console.log("5")
+	  // console.log("5")
 	   
 						
 		d3.csv("juzhen.csv", function(data) {
-                console.log(data)
+                // console.log(data)
 			xScale.domain(
 				d3.extent(data, function(d) {
 					return +d.x;
@@ -277,7 +307,7 @@ function main5(){
 					.on("mousemove", mousemoveFunc)
 					.on("mouseout", mouseoutFunc)
 					.transition()
-					.duration(500) 
+					.duration(400) 
 					.attr("fill",function(d) {
 							if(d.biye == "1" && d.yinyong == "0"){return "#b2b2b2"}
 						else if(d.yinyongbiye == "1" && d.yinyong == "1"){return "#b8904f"}
@@ -295,7 +325,7 @@ function main5(){
 		//	放大	
 			circles5
 				.transition()
-				.delay(600)
+				.delay(500)
 		        .duration(400) 
 				.attr("r","20") 
 				.attr("cx", function(d) { 
@@ -308,7 +338,7 @@ function main5(){
 				
 			//都归到同一个位置	
             circles5.transition()
-					.delay(1000)
+					.delay(900)
 					.duration(1)
 					.attr("cx",function(d){
 						return xScale(d.fangdax2)})
@@ -325,8 +355,8 @@ function main5(){
 			//颜色消失		   			
 				 circles5  
 					.transition()
-					.delay( 1400)
-					.duration(600) 	
+					.delay(1000)
+					.duration(500) 	
 				    .attr("fill",function(d) {
 							if(d.fangdax2 == "6.6" && d.fangday2 == "3.3"){return "#b2b2b2"}
 						else if(d.fangdax == "0" ){return "rgba(184,144,79,1)"}
@@ -337,8 +367,8 @@ function main5(){
 		 circles5  
 					.transition()
 					.delay(function(d) { 
-					return d.f * 50+1500})
-					.duration(750) 		
+					return d.f * 40+900})
+					.duration(700) 		
 				    .attr("cx", function(d) { 
 					return xScale(+d.x); 
 				  })
@@ -350,21 +380,30 @@ function main5(){
 							if(d.last == "1"){return "rgba(184,144,79,1)"}
 						else {return "#b2b2b2"}
 							})  
-					
-					
+			svg.append("text")
+					.attr("class", "title1")
+
+			svg.select(".title1")			
+					.attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(1.15*height) + ")")
+					.style("text-anchor", "middle")
+					.attr("fill","grey")
+					.text("1个点表示约4万篇论文");		
 			
+			
+
 		});
 		
    
 		function mouseoverFunc(d) {
-          console.log(d);
+          // console.log(d);
             return tooltip
                 .style("display", null)
-                .html("<div>11111</div>" )
+                .html("<div></div>" )
 				}
 
         function mousemoveFunc(d) {
-          console.log("events", window.event, d3.event);
+          // console.log("events", window.event, d3.event);
             return tooltip
                 .style("top", (d3.event.pageY - 10) + "px" )
                 .style("left", (d3.event.pageX + 10) + "px");
@@ -382,7 +421,7 @@ function main5(){
 
 
 function main6(){
-	 console.log("1")
+	 // console.log("1")
 	   
 
 			
@@ -453,8 +492,6 @@ d3.csv("zhexian.csv", function(error, data) {
 			
 			
 			
-		
-			  
 			  
             svg2.append("g")
 			   .attr("class","x axis")
@@ -464,7 +501,7 @@ d3.csv("zhexian.csv", function(error, data) {
             // draw yAxis
           svg2.append("g")
 			   .attr("class","y axis")
-			  
+			 yAxis.ticks(5);  
 		 svg2.select(".x.axis")
 					.transition()
 					.duration(1000)
@@ -474,33 +511,52 @@ d3.csv("zhexian.csv", function(error, data) {
 	                .transition()
 	                .duration(1000)
 	                .call(yAxis); 
+	    
 			   
            var theight = height + 40 ;
 		   
            svg2.append("text")
                 .attr("class", "xTitle")
+            svg2.select(".xTitle")
+               .attr("transform", "translate(" + (0.74*fullWidth) + " ," +
+								(1.05*height) + ")")
                 .style("text-anchor", "middle")
-                .attr("y", theight)
-				.attr("x", "300")
                 .text("年份");
 				
-			svg2.append("text")
-                .attr("class", "xTitle")
-                .style("text-anchor", "middle")
-				.attr("transform","rotate(-90)")
-                .attr("x",-theight/2)
-				.attr("y", "-30")
-                .text("百分比")
-				
 			
+			svg2.append("text")
+                .attr("class", "yTitle")
+            svg2.select(".yTitle")
+                .style("text-anchor", "middle")
+				.attr("transform", "translate(0,-5)")
+	            .attr("dy", "-10")
+                .text("贡献率（%）");
+				
+			svg2.append("text")	
+            	.attr("class","yTitle")
+            	.attr("id","yTitle2")
+            svg2.select("#yTitle2")	
+					.attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(1.15*height) + ")")
+					.style("text-anchor", "middle")
+					.attr("fill","grey")					
+					.text("贡献率*=核心期刊引用的总论文中该类论文的占比");	
+			
+		   	svg2.append("text") 
+		             .attr("class","little")
+		             
+		            svg2.select(".little") 
+		     .attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(-0.15*height) + ")")
+		     .style("text-anchor", "middle")    
+		     .text("研究生毕业论文与期刊论文的贡献率差距巨大"); 
         });
 		
 		function mouseoverFunc(d) {
           
             return tooltip
                 .style("display", null) // 区别"none": 不呈现；"null": 取消之前所有给display的属性。
-                .html("<div>人民币</div>" 
-				)}
+                .html("<p>"+d.year +"年被引用概率为"+d.one+"%</p>")}
 
         function mousemoveFunc(d) {
             // console.log("events", window.event, d3.event);
@@ -539,7 +595,6 @@ d3.csv("zhexianyuan.csv", function(error, data) {
 				.enter()
 			    .append("circle")
 			    .merge(circles1)
-				
 				.on("mouseover", mouseoverFunc) 
                 .on("mousemove", mousemoveFunc)
                 .on("mouseout", mouseoutFunc)
@@ -553,15 +608,32 @@ d3.csv("zhexianyuan.csv", function(error, data) {
 				})
 				.attr("stroke","rgb(184,144,79)") 
 				.attr("stroke-width","2")
-				.attr("fill","rgba(254,240,214,1)") 
+				.attr("fill","#fff9f0") 
 				.attr("r","4") 
+
+		var labels = svg2.selectAll(".linename")
+						 .data(data)
+
+			 labels.enter()
+			 	   .append("text")
+			 	   .attr("class","linename")
+			 	   .merge(labels)
+			 	   .transition()
+		           .duration(1000)
+			 	   .attr("transform", function(d){ return "translate(" + xScale2(d.year) + " ," +
+								yScale(d.one) + ")"})
+			 	   .attr("dx",7)
+			 	   .attr("dy",7)
+			 	   .text(function(d){if(d.one > 30 && d.year == "2018"){return "期刊论文"}
+			 	   	else if (d.one < 30 && d.year == "2018")  {return "毕业论文"}})
 	})		
+
 		
 		
 		}
 
 function main7(){
-	console.log("7")
+	// console.log("7")
 	
 	 d3.csv("zhexian.csv", function(error, data) {
             if (error) throw error; 
@@ -641,21 +713,7 @@ function main7(){
 			
 			   
            var theight = height + 40 ;
-		   
-           svg2.append("text")
-                .attr("class", "xTitle")
-                .style("text-anchor", "middle")
-                .attr("y", theight)
-				.attr("x", "300")
-                .text("年份");
-				
-			svg2.append("text")
-                .attr("class", "xTitle")
-                .style("text-anchor", "middle")
-				.attr("transform","rotate(-90)")
-                .attr("x",-theight/2)
-				.attr("y", "-30")
-                .text("百分比")
+		  
 			
 			 svg2.append("g")
 			   .attr("class","x axis")
@@ -674,19 +732,58 @@ function main7(){
 	     svg2.select(".y.axis")
 	                .transition()
 	                .duration(1000)
-	                .call(yAxis);	
+	                .call(yAxis);
+
+	    yAxis.ticks(5);	
 			
+		svg2.append("text")
+                .attr("class", "yTitle")
+
+        svg2.select(".yTitle")
+                .style("text-anchor", "middle")
+				.attr("transform", "translate(0,-5)")
+	            .style("text-anchor", "middle")
+	            .attr("dy", "-10")
+                .text("被引用概率（%）");
+
+        svg2.append("text")
+                .attr("class", "xTitle")
+            svg2.select(".xTitle")
+               .attr("transform", "translate(" + (0.74*fullWidth) + " ," +
+								(1.05*height) + ")")
+                .style("text-anchor", "middle")
+                .text("年份");
+				
+				
+			svg2.append("text")	
+            	.attr("class","yTitle")
+            	.attr("id","yTitle2")
+            svg2.select("#yTitle2")	
+					.attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(1.15*height) + ")")
+					.style("text-anchor", "middle")
+					.attr("fill","grey")					
+					.text("被引用概率*=被核心期刊引用的篇数/五年内的发表总篇数");	
+
+			svg2.append("text") 
+			             .attr("class","little")
+			             
+			            svg2.select(".little") 
+			     .attr("transform", "translate("+ (0.32*fullWidth) + " ," +
+								(-0.15*height) + ")")
+			     .style("text-anchor", "middle")    
+			     .text("研究生毕业论文更容易被核心期刊引用"); 
         });
    
 		function mouseoverFunc(d) {
-          console.log(d);
+          // console.log(d);
             return tooltip
                 .style("display", null) 
-                .html("<div>11111</div>" )
+                .html("<p>"+d.year +"年被引用概率为"+d.two+"%</p>" )
 				}
 
         function mousemoveFunc(d) {
-          console.log("events", window.event, d3.event);
+          // console.log("events", window.event, d3.event);
             return tooltip
                 .style("top", (d3.event.pageY - 10) + "px" )
                 .style("left", (d3.event.pageX + 10) + "px");
@@ -730,8 +827,25 @@ d3.csv("zhexianyuan.csv", function(error, data) {
 				})
 				.attr("stroke","rgb(184,144,79)") 
 				.attr("stroke-width","2")
-				.attr("fill","rgba(254,240,214,1)") 
+				.attr("fill","#fff9f0") 
 				.attr("r","4")  
+
+
+			var labels = svg2.selectAll(".linename")
+						 .data(data)
+
+			 labels.enter()
+			 	   .append("text")
+			 	   .attr("class","linename")
+			 	   .merge(labels)
+			 	   .transition()
+		           .duration(1000)
+			 	   .attr("transform", function(d){ return "translate(" + xScale2(d.year) + " ," +
+								yScale(d.two) + ")"})
+			 	   .attr("dx",7)
+			 	   .attr("dy",7)
+			 	   .text(function(d){if(d.two < 15 && d.year == "2018"){return "期刊论文"}
+			 	   	else if (d.two > 15 && d.year == "2018")  {return "毕业论文"}})
 	})				
 		
 
@@ -742,49 +856,39 @@ d3.csv("zhexianyuan.csv", function(error, data) {
 function main8(){
 	
 	   // 基于准备好的dom，初始化echarts实例
-        var myChart = echarts.init(document.getElementById('tu2'));
+var myChart = echarts.init(document.getElementById('tu2'));
 
-        // 指定图表的配置项和数据
-
-        var sourceData = [{
-        name: '期刊',
-        nameValue: 40978133,
-        valueUnit: "篇"
-    },
-    {
-        name: '会议',
-        nameValue: 3914782,
-        valueUnit: "篇"
-    },
-    {
-        name: '学位',
-        nameValue: 335681,
-        valueUnit: "篇"
-    },
-    {
-        name: '核心期刊',
-        nameValue: 10068573,
-        valueUnit: "篇"
-    },
-    {
-        name: 'EI和SCI期刊',
-        nameValue: 2287863,
-        valueUnit: "篇"
-    },
-    {
-        name: '其他期刊',
-        nameValue: 11533850,
-        valueUnit: "篇"
+var sourceData = [{
+        name: '期刊论文',
+        
     },
     {
         name: '会议论文',
-        nameValue: 2192428,
-        valueUnit: "篇"
+       
     },
     {
-        name: '学位论文',
-        nameValue: 19145882,
-        valueUnit: "篇"
+        name: '毕业论文',
+       
+    },
+    {
+        name: '核心期刊',
+       
+    },
+    {
+        name: 'EI和SCI期刊',
+      
+    },
+    {
+        name: '其他期刊',
+       
+    },
+    {
+        name: '会议论文 ',
+       
+    },
+    {
+        name: '毕业论文 ',
+        
     }
 ];
 var sangjiColor = ['#f4ce92', '#f2b87e', '#C8B083', '#f4ce92', '#f4ce92', '#f4ce92', '#f2b87e', '#C8B083'];
@@ -799,123 +903,124 @@ for (let d = 0; d < sourceData.length; d++) {
 }
 
 option = {
-    backgroundColor: "#feefd7",
-    series: [{
+    tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove',
+            backgroundColor:'white',
+            borderColor:'grey',
+            borderWidth:1,
+            padding:2,
+            textStyle:{
+        color:'grey',
+        fontSize:12
+    }
+
+        },
+    series: {
         type: 'sankey',
-        layout: 'none',
-        top: "12%",
-        bottom: '21%',
-        left: '3%',
-        focusNodeAdjacency: 'allEdges',
-        data: itemStyleSource,
-        links: [{
-                source: '期刊',
-                target: '核心期刊',
-                value: 9502106
-            },
-            {
-                source: '期刊',
-                target: 'EI和SCI期刊',
-                value: 2175095
-            },
-            {
-                source: '期刊',
-                target: '其他期刊',
-                value: 10631748
-            },
-            {
-                source: '期刊',
-                target: '会议论文',
+        layout:'none',
+         focusNodeAdjacency: 'allEdges',
+         data: itemStyleSource,
+          itemStyle: {
+                    normal: {
+                        borderWidth: 1,
+                        borderColor: 'transparent'
+                    }
+                },
+                
+        sourceData: [{
+            name: '期刊论文'
+        }, {
+            name: '会议论文'
+        }, {
+            name: '毕业论文'
+        }, {
+            name: '核心期刊'
+        }, {
+            name: 'EI和SCI期刊'
+        }, {
+            name: '其他期刊'
+        },{
+             name:'会议论文 '
+        },{
+            name: '毕业论文 '
+        }],
+         links: [{
+            source: '期刊论文',
+            target: '核心期刊',
+            value: 9502106
+        }, {
+            source: '期刊论文',
+            target: 'EI和SCI期刊',
+            value: 2175095
+        }, {
+            source: '期刊论文',
+            target: '其他期刊',
+            value: 10631748
+        }, {
+            source: '期刊论文',
+                target: '会议论文 ',
                 value: 2081742
-            },
-            {
-                source: '期刊',
-                target: '学位论文',
+        }, {
+             source: '期刊论文',
+                target: '毕业论文 ',
                 value: 16587442
-            },
-            {
-                source: '会议',
+        }, {
+             source: '会议论文',
                 target: '核心期刊',
                 value: 531506
-            },
-            {
-                source: '会议',
+        }, {
+             source: '会议论文',
                 target: 'EI和SCI期刊',
                 value: 106706
-            },
-            {
-                source: '会议',
+        }, {
+             source: '会议论文',
                 target: '其他期刊',
                 value: 795454
-            },
-            {
-                source: '会议',
-                target: '会议论文',
+        },
+        {
+                source: '会议论文',
+                target: '会议论文 ',
                 value: 94917
             },
             {
-                source: '会议',
-                target: '学位论文',
+                source: '会议论文',
+                target: '毕业论文 ',
                 value: 2386199
             },
             {
-                source: '学位',
+                source: '毕业论文',
                 target: '核心期刊',
                 value: 34961
             },
             {
-                source: '学位',
+                source: '毕业论文',
                 target: 'EI和SCI期刊',
                 value: 6062
             },
             {
-                source: '学位',
+                source: '毕业论文',
                 target: '其他期刊',
                 value: 106648
             },
             {
-                source: '学位',
-                target: '会议论文',
+                source: '毕业论文',
+                target: '会议论文 ',
                 value: 15769
             },
             {
-                source: '学位',
-                target: '学位论文',
+                source: '毕业论文',
+                target: '毕业论文 ',
                 value: 172241
-            }
-        ],
-        label: {
-            normal: {
-                color: "#000",
-                fontSize: 10,
-                formatter: function(params, i) {
-                    console.log(params);
-                    return "{white|" + params.data.name + "}" + params.data.nameValue + " " + params.data.valueUnit;
-                },
-                rich: {
-                    white: {
-                        fontSize: 10,
-                        padding: [0, 0, 0, 0]
+            }],
+            lineStyle: {
+                    normal: {
+                        curveness: 0.5,
+                        color:'rgb(245,206,147)'
                     }
-                }
-            }
-
-        },
-        lineStyle: {
-            normal: {
-                color: 'source',
-                curveness: 0.5,
-                opacity:0.7
-                }
-        },
-        itemStyle: {
-            normal: {
-                borderWidth: 1,
-                borderColor: 'transparent'
-            }
-        }
-    }]
-}
+                },
+    }
+};
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
@@ -924,41 +1029,31 @@ option = {
 
 
 function main9(){
-	
-	 var myChart = echarts.init(document.getElementById('tu2'));
+var myChart = echarts.init(document.getElementById('tu2'));
 
-        // 指定图表的配置项和数据
-
-       var sourceData = [
-    {
-        name: '学位',
-        nameValue: 335681,
-        valueUnit: "篇"
+var sourceData = [{
+        name: '毕业论文',
+        
     },
     {
         name: '核心期刊',
-        nameValue: 10068573,
-        valueUnit: "篇"
+       
     },
     {
         name: 'EI和SCI期刊',
-        nameValue: 2287863,
-        valueUnit: "篇"
+      
     },
     {
         name: '其他期刊',
-        nameValue: 11533850,
-        valueUnit: "篇"
+       
     },
     {
-        name: '会议论文',
-        nameValue: 2192428,
-        valueUnit: "篇"
+        name: '会议论文 ',
+       
     },
     {
-        name: '学位论文',
-        nameValue: 19145882,
-        valueUnit: "篇"
+        name: '毕业论文 ',
+        
     }
 ];
 var sangjiColor = [ '#C8B083', '#f4ce92', '#f4ce92', '#f4ce92', '#f2b87e', '#C8B083'];
@@ -973,74 +1068,79 @@ for (let d = 0; d < sourceData.length; d++) {
 }
 
 option = {
-    backgroundColor: "#feefd7",
-    series: [{
+    tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove',
+            backgroundColor:'white',
+            borderColor:'grey',
+            borderWidth:1,
+            padding:2,
+            textStyle:{
+        color:'grey',
+        fontSize:12
+    }
+
+        },
+    series: {
         type: 'sankey',
-        layout: 'none',
-        top: "12%",
-        bottom: '21%',
-        left: '3%',
-        focusNodeAdjacency: 'allEdges',
-        data: itemStyleSource,
+        layout:'none',
+         focusNodeAdjacency: 'allEdges',
+         data: itemStyleSource,
+          itemStyle: {
+                    normal: {
+                        borderWidth: 1,
+                        borderColor: 'transparent'
+                    }
+                },
+                
+        sourceData: [{
+            name: '毕业论文'
+        }, {
+            name: '核心期刊'
+        }, {
+            name: 'EI和SCI期刊'
+        }, {
+            name: '其他期刊'
+        },{
+             name:'会议论文 '
+        },{
+            name: '毕业论文 '
+        }],
         links: [
             {
-                source: '学位',
+                source: '毕业论文',
                 target: '核心期刊',
                 value: 34961
             },
             {
-                source: '学位',
+                source: '毕业论文',
                 target: 'EI和SCI期刊',
                 value: 6062
             },
             {
-                source: '学位',
+                source: '毕业论文',
                 target: '其他期刊',
                 value: 106648
             },
             {
-                source: '学位',
-                target: '会议论文',
+                source: '毕业论文',
+                target: '会议论文 ',
                 value: 15769
             },
             {
-                source: '学位',
-                target: '学位论文',
+                source: '毕业论文',
+                target: '毕业论文 ',
                 value: 172241
-            }
-        ],
-        label: {
-            normal: {
-                color: "#000",
-                fontSize: 10,
-                formatter: function(params, i) {
-                    console.log(params);
-                    return "{white|" + params.data.name + "}" + params.data.nameValue + " " + params.data.valueUnit;
-                },
-                rich: {
-                    white: {
-                        fontSize: 10,
-                        padding: [0, 0, 0, 0]
+            }],
+            lineStyle: {
+                    normal: {
+                        curveness: 0.5,
+                        color:'rgb(245,206,147)'
                     }
-                }
-            }
-
-        },
-        lineStyle: {
-            normal: {
-                color: 'source',
-                curveness: 0.5,
-                opacity:0.5
-                }
-        },
-        itemStyle: {
-            normal: {
-                borderWidth: 1,
-                borderColor: 'transparent'
-            }
-        }
-    }]
-}
+                },
+    }
+};	
+	
 
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);};
@@ -1049,36 +1149,29 @@ function main10(){
 
         // 指定图表的配置项和数据
 
-var sourceData = [
-    {
-        name: '学位',
-        nameValue: 335681,
-        valueUnit: "篇"
+var sourceData = [{
+        name: '毕业论文',
+        
     },
     {
         name: '核心期刊',
-        nameValue: 10068573,
-        valueUnit: "篇"
+       
     },
     {
         name: 'EI和SCI期刊',
-        nameValue: 2287863,
-        valueUnit: "篇"
+      
     },
     {
         name: '其他期刊',
-        nameValue: 11533850,
-        valueUnit: "篇"
+       
     },
     {
-        name: '会议论文',
-        nameValue: 2192428,
-        valueUnit: "篇"
+        name: '会议论文 ',
+       
     },
     {
-        name: '学位论文',
-        nameValue: 19145882,
-        valueUnit: "篇"
+        name: '毕业论文 ',
+        
     }
 ];
 var sangjiColor = [ '#C8B083','#d24a4a', '#f4ce92', '#f4ce92', '#f2b87e', '#C8B083'];
@@ -1093,75 +1186,78 @@ for (let d = 0; d < sourceData.length; d++) {
 }
 
 option = {
-    backgroundColor: "#feefd7",
-    series: [{
+   tooltip: {
+            trigger: 'item',
+            triggerOn: 'mousemove',
+            backgroundColor:'white',
+            borderColor:'grey',
+            borderWidth:1,
+            padding:2,
+            textStyle:{
+        color:'grey',
+        fontSize:12
+    }
+
+        },
+    series: {
         type: 'sankey',
-        layout: 'none',
-        top: "12%",
-        bottom: '21%',
-        left: '3%',
-        focusNodeAdjacency: 'allEdges',
-        data: itemStyleSource,
+        layout:'none',
+         focusNodeAdjacency: 'allEdges',
+         data: itemStyleSource,
+          itemStyle: {
+                    normal: {
+                        borderWidth: 1,
+                        borderColor: 'transparent'
+                    }
+                },
+                
+        sourceData: [{
+            name: '毕业论文'
+        }, {
+            name: '核心期刊'
+        }, {
+            name: 'EI和SCI期刊'
+        }, {
+            name: '其他期刊'
+        },{
+             name:'会议论文 '
+        },{
+            name: '毕业论文 '
+        }],
         links: [
             {
-                source: '学位',
+                source: '毕业论文',
                 target: '核心期刊',
                 value: 34961
             },
             {
-                source: '学位',
+                source: '毕业论文',
                 target: 'EI和SCI期刊',
                 value: 6062
             },
             {
-                source: '学位',
+                source: '毕业论文',
                 target: '其他期刊',
                 value: 106648
             },
             {
-                source: '学位',
-                target: '会议论文',
+                source: '毕业论文',
+                target: '会议论文 ',
                 value: 15769
             },
             {
-                source: '学位',
-                target: '学位论文',
+                source: '毕业论文',
+                target: '毕业论文 ',
                 value: 172241
-            }
-        ],
-        label: {
-            normal: {
-                color: "#000",
-                fontSize: 10,
-                formatter: function(params, i) {
-                    console.log(params);
-                    return "{white|" + params.data.name + "}" + params.data.nameValue + " " + params.data.valueUnit;
-                },
-                rich: {
-                    white: {
-                        fontSize: 10,
-                        padding: [0, 0, 0, 0]
+            }],
+            lineStyle: {
+                    normal: {
+                        curveness: 0.5,
+                        color:'rgb(245,206,147)'
                     }
-                }
-            }
-
-        },
-        lineStyle: {
-            normal: {
-                color: 'source',
-                curveness: 0.5,
-                opacity:0.5
-                }
-        },
-        itemStyle: {
-            normal: {
-                borderWidth: 1,
-                borderColor: 'transparent'
-            }
-        }
-    }]
-}
-
+                },
+    }
+};
         // 使用刚指定的配置项和数据显示图表。
         myChart.setOption(option);
 	};
