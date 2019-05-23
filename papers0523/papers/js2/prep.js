@@ -108,11 +108,11 @@ eightlines()
 function eightlines() {
 
 	 if (windows > 800){
-			    var fullwidth = screen*0.95
+			    var fullwidth = screen
 				var fullheight = screen*0.33
 				var margin = {top:50, right:screen*0.35, bottom:20, left:screen*0.35};
 		    }else{
-			    var fullwidth = screen*0.95
+			    var fullwidth = screen
 				var fullheight = screen*0.9
 				var margin = {top:screen*0.2, right:screen*0.23, bottom:screen*0.05, left:screen*0.15};
 		    }
