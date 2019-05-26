@@ -450,6 +450,7 @@ function main3(){
 
 function main4(){
 	console.log("4")
+
 	
  d3.selectAll("#title3")
 	  .style("display","none");
@@ -506,6 +507,7 @@ function main4(){
 
 function main5(){
 	console.log("5")
+	d3.selectAll("svg").style("display","none");
 	
 	  
 	  
