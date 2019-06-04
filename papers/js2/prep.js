@@ -12,7 +12,7 @@
 			    var fullHeight = screen*0.38
 				var margin = {top:screen*0.06, right:screen*0.07, bottom:screen*0.05, left:screen*0.07};
 		    }else{
-			    var fullWidth = screen*1
+			    var fullWidth = screen*0.99
 				var fullHeight = screen*0.85
 				var margin = {top:screen*0.2, right:screen*0.2, bottom:screen*0.1, left:screen*0.2};
 				

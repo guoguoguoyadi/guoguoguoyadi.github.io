@@ -572,9 +572,6 @@ html {
 }
 /*#tout*/
 
-.kuang{
-	width: 110%;
-}
 
 .gunbang{
 	 width:100%;
@@ -597,8 +594,10 @@ html {
 .kuang{
 	width:100%;
 	border:0;
-	margin:0 auto;
+	margin:0;
 	background-color:#fff9f0;
+	padding: 0;
+	position: relative;
 	
 	}
 
