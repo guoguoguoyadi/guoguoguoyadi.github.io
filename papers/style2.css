@@ -327,7 +327,15 @@ height: 89%;
     font-size: 12px;
     text-align: center;
     margin-bottom: 1%;
-
+	font-weight:bolder;
+    }
+ #tablepbujiacu {
+	margin-left:120px;
+ 	padding:0 auto;
+    font-size: 12px;
+    text-align: center;
+    margin-bottom: 1%;
+    font-weight:normal;
     }
 .yindao p {
  margin-left:120px;
@@ -335,6 +343,7 @@ height: 89%;
     font-size: 12px;
     text-align: center;
     margin-bottom: 1%;
+    color: rgba(0,0,0,0);
 
     }
 .tablemax {
@@ -372,7 +381,7 @@ height: 89%;
             }
 
 
-        #tooltiped {
+#tooltiped {
 				stroke: "#000";
 				stroke-width: 2px;
 			}
@@ -382,7 +391,16 @@ height: 89%;
 	padding:0 auto;
     font-size: 12px;
     line-height: 120%;
+    font-weight: bolder;
     }
+#tablezhoupbujiacu {
+	margin:0 auto;
+	padding:0 auto;
+    font-size: 12px;
+    line-height: 120%;
+    font-weight:normal;
+    }
+
 .thsbujiacu{
 	font-weight:normal;
 }
@@ -917,6 +935,16 @@ height: 100%;
     margin-bottom: 4%;
 
     }
+
+#tablepbujiacu {
+	margin:0 auto;
+	padding:0 auto;
+    font-size: 10px;
+    text-align: center;
+    margin-bottom: 4%;
+    font-weight:normal;
+
+    }
 .yindao p {
 	margin:0 auto;
 	padding:0 auto;
@@ -924,10 +952,11 @@ height: 100%;
     text-align: center;
     margin-bottom: 4%;
     color: rgba(0,0,0,0);
-    font-weight: bold;
+   
 
 
 }
+
 .yindao img {
 	margin:0;
 }
@@ -954,12 +983,20 @@ height: 100%;
 	/*width: 3%;这里设置宽就浮动不上去*/
 
 }
+
 #tablezhou p {
 	margin:0 auto;
 	padding:0 auto;
     font-size: 12px;
     line-height: 120%;
-    font-weight: bold;
+    font-weight: bolder;
+    }
+#tablezhoupbujiacu{
+	margin:0 auto;
+	padding:0 auto;
+    font-size: 12px;
+    line-height: 120%;
+    font-weight:normal;
     }
 
 th, td {
