@@ -517,7 +517,7 @@ d3.csv("zhexian.csv", function(error, data) {
            svg2.append("text")
                 .attr("class", "xTitle")
             svg2.select(".xTitle")
-               .attr("transform", "translate(" + (0.74*fullWidth) + " ," +
+               .attr("transform", "translate(" + (0.67*fullWidth) + " ," +
 								(1.05*height) + ")")
                 .style("text-anchor", "middle")
                 .text("年份");
@@ -748,7 +748,7 @@ function main7(){
         svg2.append("text")
                 .attr("class", "xTitle")
             svg2.select(".xTitle")
-               .attr("transform", "translate(" + (0.74*fullWidth) + " ," +
+               .attr("transform", "translate(" + (0.67*fullWidth) + " ," +
 								(1.05*height) + ")")
                 .style("text-anchor", "middle")
                 .text("年份");
