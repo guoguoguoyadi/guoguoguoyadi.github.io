@@ -370,13 +370,21 @@ var scene3 = new ScrollMagic.Scene({
 })
 .setPin('#tu3') 
 .addTo(controller);
+
+
+//深深浅浅图引导消失
 d3.select('.yindao')
 .on("click",xiaoshi)
 
 function xiaoshi (d){
 	d3.select(".yindao").remove()
+	d3.selectAll(".jiacu")
+	  .attr("class","bujiacu")
+	d3.selectAll(".thsjiacu")
+	  .attr("class","thsbujiacu")
 
 }
+
 d3.csv("shenshenqianqian.csv", function(error, data){
     if (error) throw error;
     // console.log(data);
@@ -459,24 +467,26 @@ d3.csv("shenshenqianqian.csv", function(error, data){
       .data(function(d) { return d; })
       .enter()
       .append("td")
-      .attr("class","tds")
+      .attr("class",function(d){
+      	if (d == 2015) { return "jiacu"}
+      })
       .text(function(d,i){ if( i == 25){return d} })
-   .style('color', function(d){
-    if (d == 2009 || d == 2012 || d == 2015 || d == 2018 ){
-     return "black";
-    }
-    else{
-     return "rgba(0,0,0,0)";
-    }
-   })
-   .style("background-color", function(d,i) {
-        
-         if (i == 25){
-                return "#fff9f0" ;}//为什么一定要把i这个if放在第一个就可以实现效果呢？把他放到else if 里就不行
-  else if (d != 0){return colorScale(d)}
-  else  { return "#fff9f0"}
+  	  .style('color', function(d){
+		    if (d == 2009 || d == 2012 || d == 2015 || d == 2018 ){
+		     return "black";
+		    }
+		    else{
+		     return "rgba(0,0,0,0)";
+		    }
+		   })
+		   .style("background-color", function(d,i) {
+		        
+		         if (i == 25){
+		                return "#fff9f0" ;}//为什么一定要把i这个if放在第一个就可以实现效果呢？把他放到else if 里就不行
+		  else if (d != 0){return colorScale(d)}
+		  else  { return "#fff9f0"}
             })
-    .on("mouseover", mouseoverFunc) 
+       .on("mouseover", mouseoverFunc) 
        .on("mousemove", mousemoveFunc)
        .on("mouseout", mouseoutFunc);
 	   
@@ -524,6 +534,12 @@ d3.csv("shenshenqianqian.csv", function(error, data){
       .enter()
       .append("th")
       .text(function(d){ return d.label; })
+      .attr("class",function(d){
+      	if (d.label == 2012) { return "thsjiacu"}
+      		else{
+      			return "thsbujiacu"
+      		}
+      })
 	  .style('color', function(d){
 	  	if (d.label % 2 == 0){
 	  		return "black";
@@ -532,8 +548,9 @@ d3.csv("shenshenqianqian.csv", function(error, data){
 	  		return "rgba(0,0,0,0)";
 	  	}
 	  })
-	  .attr("class","ths")
-	  .style("background-color","#fff9f0")
+	  // .attr("class","ths")
+	  .style("background-color","rgba(0,0,0,0)")
+	
     
 	
 
