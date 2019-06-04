@@ -558,6 +558,10 @@ text.bolder {
 
 		
 @media screen and (max-width: 800px){
+*{
+	position: relative;
+	
+}
 
 body{
 	overflow-x: hidden;
@@ -597,8 +601,6 @@ html {
 	margin:0;
 	background-color:#fff9f0;
 	padding: 0;
-	position: relative;
-	
 	}
 
 .juzhong {
