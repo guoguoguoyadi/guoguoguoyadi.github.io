@@ -46,6 +46,7 @@ h1{
 width:98%;
 margin:0;
 padding:0;
+position: static;
 }
 
 .three{
