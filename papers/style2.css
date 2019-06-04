@@ -561,9 +561,10 @@ text.bolder {
 
 body{
 	overflow-x: hidden;
-	width: 100%;
+	width: 100vw;
 	margin: 0;
 	padding: 0;
+
 }
 html {
 	padding: 0;
