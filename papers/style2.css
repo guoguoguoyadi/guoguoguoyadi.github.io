@@ -321,7 +321,7 @@ height: 89%;
 
 	}
 
-#table p {
+.tablep {
  margin-left:120px;
  padding:0 auto;
     font-size: 12px;
@@ -346,6 +346,9 @@ height: 89%;
     color: rgba(0,0,0,0);
 
     }
+.buxianshi{
+	opacity:0
+}
 .tablemax {
 	
 	position: relative;
@@ -386,7 +389,7 @@ height: 89%;
 				stroke-width: 2px;
 			}
 
-#tablezhou p {
+.tablezhoup {
 	margin:0 auto;
 	padding:0 auto;
     font-size: 12px;
@@ -927,7 +930,7 @@ height: 100%;
 	top:0;
 
 }
-#table p {
+.tablep {
 	margin:0 auto;
 	padding:0 auto;
     font-size: 10px;
@@ -959,6 +962,7 @@ height: 100%;
 
 .yindao img {
 	margin:0;
+	
 }
 
 
@@ -983,8 +987,15 @@ height: 100%;
 	/*width: 3%;这里设置宽就浮动不上去*/
 
 }
+#tablezhoupbujiacu{
+	margin:0 auto;
+	padding:0 auto;
+    font-size: 12px;
+    line-height: 120%;
+    font-weight:normal;
+    }
 
-#tablezhou p {
+.tablezhoup {
 	margin:0 auto;
 	padding:0 auto;
     font-size: 12px;
