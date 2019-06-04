@@ -42,16 +42,17 @@ h1{
 	margin:0;
 	background-color:#fff9f0;}
 
-.two {overflow:auto;
-width:98%;
+.two {
+overflow:auto;
+width:100%;
 margin:0;
 padding:0;
-position: static;
+
 }
 
 .three{
 margin:0 ;
-	width:98%;
+width:100%;
 }
 #tu2{
 	float:left;
@@ -63,7 +64,7 @@ margin:0 ;
 }
 .four {
 overflow:auto;
-width:98%;
+width:100%;
 margin:0;
 margin-top: 10%;
 }
