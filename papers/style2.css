@@ -7,6 +7,7 @@ body {
 }
 html {
 	padding: 0;
+	
 }
 #toutu1{
 	display:block;
@@ -72,8 +73,9 @@ margin-top: 10%;
 .five{
 	padding-top:0%;
 margin-top: 5%;}
+
 .six{
-	overflow:auto;}
+	overflow:hidden;}
 
 .kuang{
 	width:85%;
@@ -308,7 +310,7 @@ height: 89%;
 }
 #table {
 	margin:0;
-	padding-left: 23.5%;
+	margin-left: 23.5%;
 	width: 53%;
 	float: left;
 	position: absolute;
@@ -498,7 +500,7 @@ text.bolder {
 	padding-left: 3%;
 	width:20%;
 	}
-span{
+/*span{
 	display: inline;
     background-color: rgb(254,240,215);
     box-shadow: 6px 0px 0 rgb(254,240,215), -6px 0 0 rgb(254,240,215);
@@ -508,7 +510,7 @@ span{
     background-color: rgba(245,206,147,0.5);
     box-shadow: 0px 0px 0 rgb(254,240,215), 0px 0 0 rgb(254,240,215);
 
-	}
+	}*/
 
 .last{
 	width: 60%; 
@@ -557,6 +559,7 @@ body{
 }
 html {
 	padding: 0;
+	overflow-x: hidden;
 }
 #tout
 
@@ -1004,8 +1007,8 @@ text.bolder {
 
 	color:#403a30;
 	margin:0 auto;
-	
-    margin-left: 2%;
+    margin-left: 5.8%;
+    width:90%;
 
 }
 
@@ -1028,11 +1031,6 @@ text.bolder {
 }
 
 
-
-#list{
-	margin-left:8%;
-	padding: 0;
-}
 #list div div {
 	margin-top:10px;
 	font-size:12px;
@@ -1042,18 +1040,19 @@ text.bolder {
 	padding-bottom:10px;
 	float:left;
 	padding-left: 2%;
-	width:31%;
+	width:30%;
 	}
-span{
+
+/*span{
 	display: inline;
     background-color: rgb(254,240,215);
     box-shadow: 6px 0px 0 rgb(254,240,215), -6px 0 0 rgb(254,240,215);
-	}
+	}*/
 #list div{
 	margin:0 auto;
 /*	overflow:auto;
-*/	width:90%;
-   height:280px;
+*/	width:100%;
+    height:280px;
 	}      
 
 .last{

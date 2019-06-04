@@ -12,6 +12,9 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.0/d3.js"></script>
 <script src="js2/echarts.min.js"></script>
 <script src="js2/ScrollMagic.min.js"></script>
+<script src="js/jquery-1.7.2.min.js"></script>
+<script src="js/jquery.color.js"></script>
+
 
 
 </head>
@@ -160,7 +163,8 @@
     <div class="yindao">
     	<img src="img/tuli.png" style="display: inline-block;width: 19%;float:right;vertical-align: middle;">
         <p style="font-size: 12px;">出版年份</p >
-        <img style="height: 100% ; width: 100%" src="img/yindao.jpg">
+<!--        <img style="height: 100% ; width: 103%;margin-bottom: 0%;" src="img/yindao.jpg">-->
+		<img style="height: 100% ; width: 100%;" src="img/yindao1.jpg">
     </div>  
   <div id="tablezhou" class="clearfix">
     <p>被</p >
@@ -192,7 +196,7 @@
 
 	
 			<p> 毕业论文的学术贡献情况不能一概而论，因为学科间存在着不小的差别。</p>
-			<p>对农学专业的李茂宇来说，毕业论文是研究生最后一年，在实验室里反复“做”出来的，实验的结果需要比现有的研究有更进一步的进展才可以。而对于新闻传播学硕士黄若鸿来说，自己的毕业论文主要是花了半年的时间把以往的新闻报道进行整理归纳，针对传播的现象和效果进行研究。而医学博士小王的硕士论文只花了三个星期的时间，他说，医学专业更重视的还是平时发表的小论文，最后的毕业论文很多是对几年来研究成果的汇总。</p>
+			<p>对农学专业的李茂宇来说，毕业论文是研究生最后一年，在实验室里反复“做”出来的，实验的结果需要比现有的研究有更进一步的进展才可以。而对于新闻传播学硕士黄若鸿来说，自己的毕业论文主要是花了半年的时间把以往的新闻报道进行整理归纳，针对传播的现象和效果进行研究。而医学博士小王的硕士论文只花了三个星期的时间，他说，医学专业更重视的还是平时发表的小论文，最后的毕业论文大多是对几年来研究成果的汇总。</p>
 			</div>
 	
 	</div>
@@ -222,7 +226,7 @@
 	<p>通过引用数据来看各学科学术贡献情况，十年来，八大学科的毕业论文被引用概率都呈现上升趋势。农业科技领域的论文引用概率保持领先，医药卫生科技最低。</p>
 		</br>
 	<h1>农业科技被引篇数少，被引用概率最高</h1>
-	<img class="gunbang" src="img/6.png"/>
+	<img class="gunbang" src="img/6.png" width="95%"/>
 			<p>值得注意的是，2018年农业科技论文的被引用篇数排在倒数第二位，但被引用概率却遥遥领先，高达67.1%。医药卫生科技毕业论文的被引用概率最低，只有31.1%。</p>
 	
 			<p>为何学科间存在巨大差异？陈学好教授认为，<span class="highlight">农学科技论文的高被引用概率与该领域的极高创新性有关，</span>毕业论文从选题开始就要创新，以推动学科进步为任务，比起更注重回顾历史、整理文献的学科，或许有了更大的被引用可能。</p >
@@ -307,21 +311,22 @@
       学位论文
       <!-- <button onclick="test()">开始测试</button> -->
     </h5>
-    <div class="result">
+    <div class="result in">
       <img class="feiji" src="img/flight.png"alt=""/>
       <h5>
-        那么到目前为止，这篇论文可能已经被引用了<span class="median" style="background-color:#fff9f0;box-shadow: none;">0</span>次（平均值）。
+        那么到目前为止，这篇论文可能已经被引用了<span class="median" style="background-color:#fff9f0;box-shadow: none;color:#d24a4a;"><u>&nbsp;&nbsp;?&nbsp;&nbsp;</u></span>次（平均值）。
         <br>
-        如果你的论文非常优秀，那么它已经被引用了<span class="max" style="background-color:#fff9f0;box-shadow: none;">0</span>次（最大值）。
+        如果你的论文非常优秀，那么它已经被引用了<span class="max" style="background-color:#fff9f0;box-shadow: none;color:#d24a4a;"><u>&nbsp;&nbsp;?&nbsp;&nbsp;</u></span>次（最大值）。
       </h5>
     </div>
   </div>
+  
   
 
 </body>
  <footer style="margin-top:30px; margin-bottom:30px; text-align:center;">
 	 <div class="last"><br></br><p><strong>数据来源：</strong></br>知网、国家统计局官网、中国科学技术信息研究所</p>
-<p>说明：知网是国内目前最权威的学术文献数据库之一，收录了《中国优秀博硕士学位论文全文数据库（CDMD）》以及《中国引文数据库》。《中国优秀硕博士学位论文全文数据库》的收录年限为1984年至今，是目前国内相关资源最完备、高质量、连续动态更新的中国优秀博硕士学位论文全文数据库。数据收集时间为2019年3月27日。</p >
+<p>说明：知网是国内目前最权威的学术文献数据库之一，收录了《中国优秀博硕士学位论文全文数据库（CDMD）》以及《中国引文数据库》。《中国优秀硕博士学位论文全文数据库》的收录年限为1984年至今，是目前国内相关资源最完备、高质量、连续动态更新的中国优秀博硕士学位论文全文数据库。本篇的数据收集时间为2019年3月27日。</p >
 <p style="margin-top:25px;"><strong>数据分析方法：</strong></br>文献计量法</p >
 	
 	 <p style="margin-top:25px;"><strong>参考资料：</strong></br>王楠楠：《中外研究生教育培养模式的比较分析》，《现代交际》，2012年10期</br >
@@ -635,7 +640,7 @@ d3.csv("shenshenqianqian.csv", function(error, data){
 
   <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/d3/4.1.0/d3.js"></script>
     <!-- jquery线上lib -->
-    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+    <!-- <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script> -->
     <!-- js scripts -->
     <script type="text/javascript" src="js2/prep.js"></script>
     <script type="text/javascript" src="js2/main.js"></script>
@@ -643,8 +648,8 @@ d3.csv("shenshenqianqian.csv", function(error, data){
 	
 
 <script src="./data.js"></script>
-<script src="js/jquery.js"></script>
-<script src="js/jquery.nice-select.js"></script>
+<!-- <script src="js/jquery.js"></script>
+ --><script src="js/jquery.nice-select.js"></script>
 <script>
   $(document).ready(function () {
     $('select').niceSelect();
@@ -670,6 +675,28 @@ d3.csv("shenshenqianqian.csv", function(error, data){
     median.innerHTML = currentData['中位数'];
     max.innerHTML = currentData['最大数'];
   }
+
+
+
+  var highlightFlag = [0,0,0,0,0,0,0,0,0]
+  $(document).scroll(function(){      
+       
+      var top = $(document).scrollTop()
+      
+      /* 高亮说明文字 */
+      for(var i=0; i<highlightFlag.length; i++){
+        
+        var highlight = $(document).find(".highlight").eq(i).offset().top
+        if(top>highlight-$(window).height()*0.5){       
+          if(highlightFlag[i]==0){
+            $(document).find(".highlight").eq(i).animate({backgroundColor:'rgba(244,206,146,0.5)'},700)
+            highlightFlag[i]=1;
+          }
+        } 
+      }
+  })
+
+
 </script>
 
 </html>
