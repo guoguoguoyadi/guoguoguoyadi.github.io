@@ -651,11 +651,11 @@ margin-top: 10%;
  height: auto;
 }
 #front5{
- height: 45vh;
+ height: 48vh;
 }
 #front6{
  margin-top: 55vh;
- height: 105vh;
+ height: 108vh;
 }
 
 #front7{
@@ -948,7 +948,7 @@ height: 100%;
 #tablezhou {
 	margin:0;
 	padding-left:94%;
-	padding-top: 15%;
+	padding-top: 30%;
 	/*width: 3%;这里设置宽就浮动不上去*/
 
 }
