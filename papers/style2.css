@@ -423,7 +423,7 @@ text-align:center;
 
 .jiacu{
 	font-weight: bolder;
-	font-size:13px;
+	font-size:11px;
 }
 .bujiacu {
 	font-weight: normal;
@@ -927,7 +927,7 @@ height: 100%;
 	width: 80%;
 	float: left;
 	height: 100%;
-	top:0;
+	top:2px;
 
 }
 .tablep {
@@ -1034,7 +1034,7 @@ text-align:center;
 }
 .thsjiacu{
 	font-weight:bolder;
-	font-size:13px;
+	font-size:11px;
 		 font-family:"微软雅黑";
 	  transform:rotate(-90deg);
 	transform:rotate(-90deg);
