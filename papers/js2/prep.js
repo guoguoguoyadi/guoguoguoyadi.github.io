@@ -47,7 +47,7 @@
 					.attr("width", fullWidth)
 					.attr("height", fullHeight)
 					.append("g")
-					.attr("transform", "translate(" + margin.left + "," + margin.top + ")")
+					.attr("transform", "translate(" + margin.left*0.8 + "," + margin.top + ")")
 					.attr("width", width)
 					.attr("height", height);
 		
