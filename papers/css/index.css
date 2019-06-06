@@ -1,6 +1,9 @@
 
 
-
+html,
+body {
+  height: 50%;
+}
 
 .start-window {
   height: 100%;

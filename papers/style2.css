@@ -42,17 +42,15 @@ h1{
 	margin:0;
 	background-color:#fff9f0;}
 
-.two {
-overflow:auto;
-width:100%;
+.two {overflow:auto;
+width:98%;
 margin:0;
 padding:0;
-
 }
 
 .three{
 margin:0 ;
-width:100%;
+	width:98%;
 }
 #tu2{
 	float:left;
@@ -64,7 +62,7 @@ width:100%;
 }
 .four {
 overflow:auto;
-width:100%;
+width:98%;
 margin:0;
 margin-top: 10%;
 }
@@ -331,6 +329,7 @@ height: 89%;
     margin-bottom: 1%;
 	font-weight:bolder;
     }
+
  #tablepbujiacu {
 	margin-left:120px;
  	padding:0 auto;
@@ -339,18 +338,15 @@ height: 89%;
     margin-bottom: 1%;
     font-weight:normal;
     }
+
 .yindao p {
  margin-left:120px;
  padding:0 auto;
     font-size: 12px;
     text-align: center;
     margin-bottom: 1%;
-    color: rgba(0,0,0,0);
 
     }
-.buxianshi{
-	opacity:0
-}
 .tablemax {
 	
 	position: relative;
@@ -386,7 +382,7 @@ height: 89%;
             }
 
 
-#tooltiped {
+        #tooltiped {
 				stroke: "#000";
 				stroke-width: 2px;
 			}
@@ -412,15 +408,14 @@ height: 89%;
 .thsjiacu{
 	font-weight:bold;
 }
+
 th, td {
 cursor: pointer;
-/*padding: 1px;*/
+padding: 1px;
 text-align: center;
 font-size: 10px;
 color:black;
 font-family:"微软雅黑";
-text-align:center;
-
 }
 
 .jiacu{
@@ -431,6 +426,7 @@ text-align:center;
 	font-weight: normal;
 
 }
+
 .intro{
 margin-top: 30px;
 
@@ -582,24 +578,21 @@ text.bolder {
 
 		
 @media screen and (max-width: 800px){
-*{
-	position:relative;
-}
+
 body{
 	overflow-x: hidden;
-	width: 100vw;
+	width: 100%;
 	margin: 0;
 	padding: 0;
-
 }
 html {
 	padding: 0;
-	overflow-x: hidden;
-	width: 100vw;
-	position: relative;
 }
-/*#tout*/
+#tout
 
+.kuang{
+	width: 100%;
+}
 
 .gunbang{
 	 width:100%;
@@ -620,9 +613,9 @@ html {
 }
 
 .kuang{
-	width:100vw;
+	width:100%;
 	border:0;
-	margin:0;
+	margin:0 auto;
 	background-color:#fff9f0;
 	
 	}
@@ -655,7 +648,7 @@ margin:0 ;
 
 #tu2{
 
-    margin-left:6%; 
+    margin-left:3%; 
  width: 100%;
  height: 45vh;
  position: absolute;}
@@ -665,7 +658,7 @@ margin:0 ;
 }
 .four {
 overflow:auto;
-width:100%;
+width:98%;
 margin:0;
 margin-top: 10%;
 }
@@ -675,11 +668,11 @@ margin-top: 10%;
  height: auto;
 }
 #front5{
- height: 51vh;
+ height: 43vh;
 }
 #front6{
- margin-top: 55vh;
- height: 108vh;
+ margin-top: 52vh;
+ height: 111vh;
 }
 
 #front7{
@@ -816,12 +809,6 @@ p {
  	 line-height:160%;
  	 margin:8px 0;
  }
-footer{
-	overflow-x: hidden;
-	width: 100%;
-	height: 120vh;
-	background-color: rgba(244,206,147,0.2);
-}
 /*path.line {
 	fill: none;
 	stroke: #a1a3a6;
@@ -907,37 +894,33 @@ table-layout: fixed;
 margin: 0;
 width: 100%;
 height: 100%;
-
 }
 
-.tablemax {
-	
-	height: 35vh;
-	margin-bottom: 10vh;
-}
+
 #table {
 	margin:0;
-	padding-left: 8%;
-	width: 80%;
-	float: left;
-	height: 100%
-
-	}
-.yindao {
-	margin:0;
-	padding-left: 8%;
+	padding-left: 7.5%;
 	width: 80%;
 	float: left;
 	height: 100%;
-	top:2px;
+	}
+
+.yindao {
+	margin:0;
+	padding-left: 7.5%;
+	width: 80%;
+	float: left;
+	height: 100%;
 
 }
+
 .tablep {
 	margin:0 auto;
-	padding:0 auto;
+	padding:0;
     font-size: 10px;
     text-align: center;
-    margin-bottom: 4%;
+    margin-bottom: 8%;
+    margin-left: 20%;
 
     }
 
@@ -946,25 +929,23 @@ height: 100%;
 	padding:0 auto;
     font-size: 10px;
     text-align: center;
-    margin-bottom: 4%;
+    margin-bottom: 8%;
     font-weight:normal;
 
     }
+
 .yindao p {
 	margin:0 auto;
 	padding:0 auto;
     font-size: 10px;
     text-align: center;
-    margin-bottom: 4%;
+    margin-bottom: 8%;
     color: rgba(0,0,0,0);
-   
-
 
 }
-
 .yindao img {
 	margin:0;
-	
+	margin-top: 1px;
 }
 
 
@@ -984,8 +965,8 @@ height: 100%;
 */
 #tablezhou {
 	margin:0;
-	padding-left:94%;
-	padding-top: 30%;
+	padding-left:93%;
+	padding-top: 35%;
 	/*width: 3%;这里设置宽就浮动不上去*/
 
 }
@@ -1014,12 +995,11 @@ height: 100%;
 
 th, td {
 cursor: pointer;
+padding: 1px;
 text-align: center;
-font-size: 10px;
+font-size: 9px;
 color:black;
 font-family:"微软雅黑";
-/*word-wrap:break-word*/
-text-align:center;
 }
 
 .thsbujiacu{
@@ -1047,7 +1027,6 @@ text-align:center;
 /*filter: progid:DXImageTransform.Microsoft.BasicImage(rotation=3); */
 
 }
-
 
 .intro{
 margin-top: 30px;
@@ -1145,8 +1124,7 @@ text.bolder {
 	}      
 
 .last{
-	width: 85%;
-	
+	width: 85%;	position: absolute;
 	margin-left:7.5%;
 	 text-align:center;
 }
@@ -1155,7 +1133,10 @@ text.bolder {
 	 width:8% ;
 }
 
-
+.tablemax {
+	margin-bottom: 8vh;
+	height: 35vh;
+}
 
 #chart{
 	margin-top: 10%;
