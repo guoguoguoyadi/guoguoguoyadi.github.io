@@ -1,0 +1,84 @@
+
+
+html,
+body {
+  height: 50%;
+}
+
+.start-window {
+  height: 100%;
+  transition: all ease-in-out 0.8s;
+}
+
+.start-window.out {
+  transform: translateY(-100%) scaleY(0);
+}
+
+.start-window h5,
+.test-window > h5 {
+  text-align: left;
+  font-family:"微软雅黑";
+  text-align: center;
+  padding-top:0px;
+  padding-bottom:20px;
+  font-size: 15px;
+  font-weight: normal;
+  color:#403a30;
+}
+
+.start-window button {
+  margin-left: 50%;
+  transform: translateX(-50%);
+  text-align: center;
+  padding: 5px 10px;
+}
+
+.test-window {
+  /* display: none; */
+  height: 100%;
+  transition: all ease-in-out 0.8s;
+  margin:0 auto;
+}
+
+.test-window > h5 button {
+  padding: 0 5px;
+}
+
+.select-box {
+  display: inline-block;
+  vertical-align: middle;
+}
+
+.result {
+  display: none;
+  text-align: center;
+  line-height:180%;
+  color:#403a30;
+}
+
+.result .icon {
+  font-size: 50px;
+}
+
+.result h5 {
+  display: inline-block;
+  font-size: 15px;
+  font-family:"微软雅黑";
+  font-weight: normal;
+  margin:0,10,0,10;
+
+}
+
+.result h5 span {
+  font-weight: bold;
+}
+
+.in {
+  display: block;
+}
+
+select {
+  padding: 5px;
+  box-sizing: border-box;
+  margin: 0 2px;
+}
