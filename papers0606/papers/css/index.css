@@ -54,6 +54,10 @@ body {
   text-align: center;
   line-height:180%;
   color:#403a30;
+  width: 95%;
+  margin-left: 2.5%;
+
+
 }
 
 .result .icon {
@@ -65,7 +69,7 @@ body {
   font-size: 15px;
   font-family:"微软雅黑";
   font-weight: normal;
-  margin:0,10,0,10;
+
 
 }
 
