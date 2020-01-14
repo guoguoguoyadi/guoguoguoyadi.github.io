@@ -1,0 +1,225 @@
+<html lang="en">
+
+    <head>
+        <meta charset="utf-8">
+        <meta name=viewport content="width=device-width,user-scalable=no,initial-scale=1,maximum-scale=1,minimum-scale=1">
+        <title>Out-of-school rate</title>
+        <style>
+			body {
+				background-color: white;
+				font-family: Helvetica, Arial, sans-serif;
+				margin: 0 auto;
+				width: 800px;
+			
+			}
+
+			#intro{
+				font-size: 14px;
+				margin: 10px 0 0 0;
+				line-height: 18px;
+				width: 800px;
+			}
+
+			h1 {
+				font-size: 24px;
+				margin: 0;
+			}
+
+			p {
+				font-size: 12px;
+				margin: 5px 0 0 0;
+			}
+
+			path {
+				stroke: #555555;
+				stroke-width: .1px;
+				/*transition: transform 0.25s ease;*/
+			}
+
+
+			path:hover {
+				/*fill: #BC333B;*/
+				/*transform: scale(1.2,1.2);
+				cursor: pointer;
+				z-index: 10;*/
+				stroke-width: .5px;
+			}
+
+			.legendLinear text {
+			    font-size: 9px;
+			}
+
+			.tooltip {
+				position: absolute;
+				z-index: 10;
+			}
+
+			.tooltip p {
+                background-color: white;
+                color: gray;
+                border: gray 1px solid;
+                padding: 2px;
+            }
+        </style>
+    </head>
+
+    <body>
+
+		<div id="world"></div>
+
+    </body>
+
+    <!-- d3线上lib -->
+    <script type="text/javascript" src="https://d3js.org/d3.v4.min.js"></script>
+    <script src="https://d3js.org/queue.v1.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/d3-legend/2.25.6/d3-legend.min.js"></script>
+
+
+    <!-- jquery线上lib -->
+    <script type="text/javascript" src="https://code.jquery.com/jquery-1.11.3.min.js"></script>
+
+
+    <script type="text/javascript">
+
+		var width = 800;
+		var height = 400;
+
+		var svg = d3.select("#world")
+					.append("svg") 
+					.attr("width", width)
+					.attr("height", height);
+
+		var world_g = svg.append("g");
+
+		var projection = d3.geoMercator()
+
+		var geoGenerator = d3.geoPath()
+			.projection(projection);
+
+		var colorScale = d3.scaleOrdinal(d3.schemeCategory20c);
+		var colorScale2 = d3.scaleLinear().range(["rgba(102,255,255,0.5)", "rgba(255,0,0,0.5)"]);
+
+		 //准备悬浮框
+       var tooltip = d3.select("body")
+                        .append("div")
+                        .attr("class", "tooltip");
+
+		// we use queue because we have 2 data files to load.
+		queue()
+		    .defer(d3.json, "countries.geo.json")
+		    .defer(d3.csv, "one.csv", typeAndSet)
+		    .await(loaded);
+
+		var countryByName = d3.map();
+
+		function typeAndSet(d){
+			d.life = +d.life;
+			countryByName.set(d.country, d)
+			return d;
+		}
+
+		function getColor(d){
+			var country = countryByName.get(d.properties.name);
+			// console.log(country)
+
+			if(country){
+				console.log(colorScale2(country.rate))
+				return colorScale2(country.life);
+			}else if(d.properties.name!="Antarctica"){
+				return "#ccc";
+			}else{
+				return "#FFFFFF";
+			}
+		}
+
+		function loaded(error, world, one){
+			if(error) throw error;
+
+			console.log(one);
+
+			colorScale2.domain(d3.extent(one, function(g){
+				return g.life;
+			}))
+
+			projection.fitSize([800, 400], world);
+
+			var world = world_g.selectAll("path")
+				.data(world.features);
+
+			world.enter()
+				.append("path")
+				.attr("d", geoGenerator)
+				// .attr("fill", function(d,i){ return colorScale(i); })
+				.attr("fill", function(d){ return getColor(d); })
+
+
+			// The d3-legend component is called here:
+
+			var linear = colorScale2;
+
+			svg.append("g")
+				.attr("class", "legendLinear")
+				.attr("transform", "translate(20,20)");
+
+			var legendLinear = d3.legendColor()
+				.shapeWidth(30)
+				.orient("vertical")
+				.labelFormat(d3.format(".0%"))
+				.scale(linear);
+
+			svg.select(".legendLinear")
+				.call(legendLinear);
+
+			svg.append("rect")
+			   .attr("x",20)
+			   .attr("y",4)
+			   .attr("width",30)
+			   .attr("height",14)
+			   .attr("fill","#ccc");
+
+			svg.append("text")
+			   .attr("x",60)
+			   .attr("y",18)
+			   .text("No record")
+			   .attr("font-size",10);
+
+
+			console.log(one)
+
+			world_g.selectAll("path")
+                .on("mouseover", mouseoverFunc) // see below...
+                .on("mousemove", mousemoveFunc) // see below...
+                .on("mouseout", mouseoutFunc); // see below...
+
+		}
+
+
+		 function mouseoverFunc(d) {
+            // console.log(d);
+            if (countryByName.get(d.properties.name)){
+
+            tooltip
+                .style("display", null) // 区别"none": 不呈现；"null": 取消之前所有给display的属性。
+                .html("<p>" + d.properties.name + "<br>Rate: " + countryByName.get(d.properties.name)["life"]*100 +"%</p>");
+            }else{
+            tooltip
+                .style("display", null) // 区别"none": 不呈现；"null": 取消之前所有给display的属性。
+                .html("<p>No record for" + d.properties.name + "</p>");
+            }
+        }
+
+        function mousemoveFunc(d) {
+            // console.log("events", window.event, d3.event);
+            tooltip
+                .style("top", (d3.event.pageY - 10) + "px" )
+                .style("left", (d3.event.pageX + 10) + "px");
+        }
+
+        function mouseoutFunc(d) {
+            tooltip.style("display", "none"); 
+
+        }
+
+    </script>
+
+</html>
